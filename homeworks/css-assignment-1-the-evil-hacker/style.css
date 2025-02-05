@@ -8,6 +8,7 @@
     width: 950px;
     background-color: silver;
     margin: 0px auto;
+    min-height: 550px;
 }
 
 #header {
@@ -18,23 +19,31 @@
 #nav_bar {
     height: 300px;
     width: 180px;
+    margin-right: 10px;
     background-color: red;
+    display: inline-block;
+    position: relative;
 }
 
 #main_content {
     height: 360px;
     width: 725px;
     background-color: yellow;
+    display: inline-block;
+    position: absolute;
 }
 
 .subcontent {
     height: 200px;
     width: 200px;
+    margin: 10px 10px 20px 10px;
     background-color: purple;
+    display: inline-block;
 }
 
 #advertisements {
     height: 90px;
     width: 670px;
+    margin-left: 10px;
     background-color: pink;
 }
