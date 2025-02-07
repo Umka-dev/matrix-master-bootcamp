@@ -8,6 +8,8 @@
 body {
     background-color: #999;
     font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
     letter-spacing: -0.05em;
 }
 
@@ -22,8 +24,9 @@ h4 {
 }
 
 h2 {
-    font-size: 2.4em;
+    font-size: 1.8em;
     font-weight: 700;
+    margin-bottom: 0.9em;
 }
 
 h3 {
@@ -50,8 +53,8 @@ h4 {
     height: 800px;
 
     background-color: white;
-    border-radius: 1.2em;
-    padding: 1em;
+    border-radius: 1em;
+    padding: 0.7em 1em;
 
     display: flex;
     flex-direction: column;
@@ -85,29 +88,73 @@ h4 {
     width: 100%;
     min-width: 366px;
     height: 580px;
-    margin: 2.1em auto;
+    margin: 2em auto;
 
     display: flex;
     flex-direction: column;
-    gap: 2.4em;
+    /* gap: 1.8em; */
 }
 
 .white-button {
     border: 1px solid #d0dadf;
     border-radius: 2em;
+    padding: 0.6em 0;
 
     width: 100%;
     max-width: 366px;
-    height: 2.3em;
 
-    font-size: 1.2em;
+    font-size: 0.9em;
+    letter-spacing: 0.01em;
     font-weight: 600;
     text-align: center;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.2em;
+    gap: 0.4em;
 }
 
-/* #0f141a #1d9bf0 */
+.margin-1 {
+    margin-bottom: 1.6em;
+}
+
+.margin-2 {
+    margin-bottom: 1em;
+}
+
+.divider-with-text {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.divider-with-text p {
+    height: 1em;
+    line-height: 1em;
+}
+
+.divider-line {
+    /* border: 1px solid red; */
+    width: 43%;
+    height: 0.2em;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* margin: 1em 0; */
+}
+
+hr {
+    border: none;
+    width: 100%;
+    height: 1px;
+    background-color: #d0dadf;
+    /* margin: 1em 0; */
+}
+
+.p {
+    background-color: #0f141a;
+    color: #1d9bf0;
+}
