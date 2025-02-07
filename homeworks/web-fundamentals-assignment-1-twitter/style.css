@@ -1,0 +1,113 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #999;
+    font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    letter-spacing: -0.05em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Merriweather Sans", serif;
+    font-style: normal;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 2.4em;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+/* Center the form container */
+.screen-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form-container {
+    max-width: 740px;
+    width: 100%;
+    height: 800px;
+
+    background-color: white;
+    border-radius: 1.2em;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.form-header {
+    /* border: 1px solid red; */
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-box-1,
+.icon-box-2,
+.icon-box-3 {
+    display: flex;
+    align-items: center;
+}
+
+.icon-box-2 {
+    justify-content: center;
+}
+
+.form-body {
+    /* border: 1px solid red; */
+
+    width: 100%;
+    min-width: 366px;
+    height: 580px;
+    margin: 2.1em auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.4em;
+}
+
+.white-button {
+    border: 1px solid #d0dadf;
+    border-radius: 2em;
+
+    width: 100%;
+    max-width: 366px;
+    height: 2.3em;
+
+    font-size: 1.2em;
+    font-weight: 600;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+}
+
+/* #0f141a #1d9bf0 */
