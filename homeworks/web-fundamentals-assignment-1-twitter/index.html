@@ -37,26 +37,29 @@
         </div>
         <form action="#" method="post">
           <div class="form-body">
-            <h2>Sign in to Twitter</h2>
-            <div class="white-button margin-1" role="button">
+            <h1>Sign in to Twitter</h1>
+
+            <button class="white-button google-button">
               <img
                 src="./images/google.png"
                 alt="google logo"
                 width="24"
                 height="24"
               />
-              <p>Sign in with Google</p>
-            </div>
-            <div class="white-button margin-2" role="button">
+              Sign in with Google
+            </button>
+
+            <button class="white-button apple-button">
               <img
                 src="./images/apple.png"
                 alt="apple logo"
                 width="24"
                 height="24"
               />
-              <h4>Sign in with Apple</h4>
-            </div>
-            <div class="divider-with-text margin-2">
+              Sign in with Apple
+            </button>
+
+            <div class="divider-with-text">
               <div class="divider-line">
                 <hr />
               </div>
@@ -66,19 +69,17 @@
               </div>
             </div>
             <input
-              class="input-text margin-1"
+              class="login-input-text"
               type="text"
               name="text"
               id="text"
               placeholder="Phone, email, or username"
             />
-            <div class="black-button margin-1" role="button">
-              <h4>Next</h4>
-            </div>
-            <div class="white-button margin-3" role="button">
-              <h4>Forgot password?</h4>
-            </div>
-            <p>Don't have an account? <span>Sign up</span></p>
+
+            <button class="black-button">Next</button>
+
+            <button class="white-button forgot-button">Forgot password?</button>
+            <p>Don't have an account? <a href="#">Sign up</a></p>
           </div>
         </form>
       </div>
