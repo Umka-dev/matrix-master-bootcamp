@@ -4,3 +4,127 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+img {
+    width: 100%;
+}
+
+ul {
+    margin: 16px 0 16px 30px;
+}
+
+
+.page-layout {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px 0 10px 0;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+header p {
+    border-bottom: 1px solid #bdbdbd;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+span {
+    font-style: italic;
+}
+
+.search-input,
+.rent-nightly-link {
+    margin-bottom: 10px;
+}
+
+.special-input {
+    width: 40px;
+    border-radius: 5px;
+    border: 1.5px solid grey;
+    padding: 4px;
+}
+
+.listings-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.find-place-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+}
+
+input,
+label {
+    display: block;
+}
+
+.accommodation-in-amsterdam {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 10px;
+}
+
+.place-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.user-photo {
+    width: 15%;
+}
+
+.accommodation-info {
+    width: 85%;
+}
+
+.accommodation-info img {
+    width: 30px;
+}
+
+.sidebar-places {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    gap: 10px;
+    /* border: 1px solid red; */
+}
+
+.sidebar-places h4,
+.additional-place h4 {
+    color: #fd4381;
+    font-size: 15px;
+}
+
+.sidebar-places p,
+.additional-place p {
+    color: #3d3d3d;
+    font-size: 13px;
+}
+
+
+
+.additional-place {
+    margin-bottom: 20px;
+}
+
+.additional-place img {
+    width: 200px;
+}
+
+.partners {
+    width: 80%;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}

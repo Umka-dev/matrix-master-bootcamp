@@ -1,10 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>airbnb</title>
   </head>
-  <body></body>
+  <body>
+    <div class="page-layout">
+      <header>
+        <h1>AirBed & Breakfast – Find a place to stay.</h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="#">Sign Up</a>
+            </li>
+            <li>
+              <a href="#">Sign In</a>
+            </li>
+          </ul>
+        </nav>
+        <p>This listing is no longer available.</p>
+      </header>
+      <main>
+        <div class="listings-container">
+          <div class="find-place-container">
+            <h2>Find a place to stay.</h2>
+            <a href="#" class="rent-nightly-link">
+              Rent nightly from real people in
+              <span>830 cities</span>
+              in
+              <span>73 countries.</span>
+            </a>
+            <form action="#" method="post">
+              <input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="Where are you going?"
+                class="search-input"
+             >
+              <label for="check-in-date">Check in</label>
+              <input type="date" name="check-in-date" id="check-in-date">
+              <label for="check-out-date">Check-out</label>
+              <input type="date" name="check-out-date" id="check-out-date">
+              <label for="guests">Guests</label>
+              <input
+                class="special-input"
+                name="guests"
+                id="guests"
+                type="number"
+                min="1"
+                max="10"
+                placeholder="1"
+             >
+            </form>
+          </div>
+          <div class="accommodation-in-amsterdam">
+            <img src="./images/img-pool.jpg" alt="pool" width="400">
+            <div class="place-container">
+              <div class="user-photo">
+                <img
+                  src="./images/user-photo.jpg"
+                  alt="user photo"
+                  width="50"
+               >
+              </div>
+              <div class="accommodation-info">
+                <p>
+                  "<a href="#"><b>Gabs place</b></a
+                  >" <b>- Amsterdam, Netherlands</b>
+                </p>
+                <p>$85/nigth</p>
+                <p>1 Review</p>
+                <img
+                  src="./images/play-pause-icons.jpg"
+                  alt="play pause buttons"
+               >
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-places">
+            <div class="place-card">
+              <h4>Frances & Greg, Los Angeles</h4>
+              <p>Recently reviewed</p>
+              <img src="./images/frances-and-greg.jpg" alt="frances&greg">
+            </div>
+            <div class="place-card">
+              <h4>Washington DC</h4>
+              <p>From $10/nigt</p>
+              <img src="./images/washington-dc.jpg" alt="washington dc">
+            </div>
+            <div class="place-card">
+              <h4>Paris, France</h4>
+              <p>Rooms from $20/night</p>
+              <img src="./images/paris-france.jpg" alt="paris france">
+            </div>
+          </div>
+        </div>
+        <div class="additional-place">
+          <div class="place-card">
+            <h4>Paris, France</h4>
+            <p>Rooms from $20/night</p>
+            <img src="./images/san-francisco-ca.jpg" alt="san francisco ca">
+          </div>
+        </div>
+        <div class="partners">
+          <img src="./images/ads.jpg" alt="partner icons">
+        </div>
+      </main>
+      <footer>
+        <div class="footer-links">
+          <ul>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">FAQ</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+            <li>
+              <a href="#">Terms & Privacy</a>
+            </li>
+            <li>
+              Biggest Deals:
+              <a href="#">New York</a>
+            </li>
+            <li>
+              <a href="#">San Francisco</a>
+            </li>
+            <li>
+              <a href="#">Paris</a>
+            </li>
+            <li>
+              Join us on:
+              <a href="#">Twitter</a>
+            </li>
+            <li>
+              <a href="#">Facebook</a>
+            </li>
+          </ul>
+        </div>
+        <p>&copy; AirBed & Breakfast, Inc.</p>
+      </footer>
+    </div>
+  </body>
 </html>
