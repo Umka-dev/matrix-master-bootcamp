@@ -15,7 +15,6 @@ img {
 .page-layout {
     max-width: 1000px;
     margin: auto;
-    border: 1px solid black;
     height: 800px;
 }
 
@@ -164,19 +163,53 @@ form {
 .main-content {
     display: inline-block;
     vertical-align: top;
-    width: 50%;
+    width: 70%;
     height: 100px;
-    border: 1px solid red;
 }
 
-.community-events-links {
+.column-1,
+.column-2,
+.column-3 {
     display: inline-block;
-    width: 250px;
-    height: auto;
+    width: 31%;
+    vertical-align: top;
 }
 
-.community-events-links h2 {
+.column-1,
+.column-2 {
+    margin-right: 20px;
+}
+
+.links-block {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
     background-color: #ddd;
 }
+
+.links-block h2 {
+    background-color: #ddd;
+}
+
+.links-in-columns a,
+.links-in-columns p {
+    display: block;
+    font-size: 20px;
+    background-color: #fff;
+    margin-bottom: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.special-link a {
+    margin-top: 50px;
+    font-weight: 800;
+    background-color: #eee;
+}
+
+.special-link a:nth-child(2n) {
+    margin-top: 0;
+    font-weight: normal;
+}
+
 
 /*#5caafb*/
