@@ -1,0 +1,19 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #eee;
+}
+
+img {
+    width: 100%;
+}
+
+/*-------------*/
+
+.page-layout {
+    max-width: 1000px;
+    margin: auto;
+    height: 800px;
+}
