@@ -24,13 +24,40 @@ body {
 .page-layout {
     max-width: 900px;
     margin: auto;
-    height: 800px;
+    height: 900px;
     border: 1px solid black;
 }
 
-.tabs-container {
-    /* max-width: 1000px; */
-    margin: 50px auto;
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    max-height: 60px;
+    padding: 3px 60px;
+    margin-bottom: 10px;
+}
+
+.header-container img {
+    width: 140px;
+    height: auto;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 12px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.tabs-container,
+.nav-links li {
     font-size: 20px;
     font-weight: 500;
 }
