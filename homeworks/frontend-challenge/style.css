@@ -94,12 +94,15 @@ p {
     display: flex;
     flex-direction: column;
     width: 94%;
-    height: 600px;
     background-color: #fff;
     border: 1px solid #d1d1d1;
     padding: 30px 50px 30px 20px;
     margin: 20px auto 30px;
     gap: 15px;
+}
+
+main {
+    border-bottom: 3px solid #d1d1d1;
 }
 
 .hero-section {
@@ -202,4 +205,50 @@ p {
     width: 100%;
     height: 2px;
     background-color: #d1d1d1;
+}
+
+/* Search by name */
+.search-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    /* border: 1px solid red; */
+    gap: 20px
+}
+
+.search-form {
+    display: flex;
+    gap: 15px
+}
+
+.search-form input {
+    font-size: 16px;
+}
+
+.search-form input[type=button] {
+    padding: 3px 8px;
+    font-weight: 600;
+    color: #686868;
+}
+
+.search-form h2 {
+    font-size: 20px;
+    color: #686868;
+}
+
+.search-by-alphabet {
+    display: flex;
+    gap: 5px
+}
+
+.search-by-alphabet a {
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.search-by-alphabet p {
+    margin-right: 15px;
 }
