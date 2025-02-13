@@ -12,9 +12,9 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="container-md">
     <header>
-      <nav class="navbar navbar-expand-md bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
         <div class="container-fluid mx-auto">
           <a class="navbar-brand" href="#"
             ><img src="./images/favicon-32x32.png" alt="r&M icon"
@@ -46,34 +46,33 @@
         </div>
       </nav>
     </header>
-    <div class="container">
-      <main>
+    <main>
+      <div>
         <h1>Rick Sanchez</h1>
         <p>
           I am a brilliant scientist, alcoholic, realist, atheist, and
           misanthrope, and I am also afraid of pirates.
         </p>
+        <div class="container-sm mb-5">
+          <img
+            class="rounded img-fluid"
+            src="./images/Rick-avatar.jpeg"
+            alt="Rick avatar"
+          />
+        </div>
 
-        <img
-          class="rounded img-fluid image"
-          src="./images/Rick-avatar.jpeg"
-          alt="Rick avatar"
-        />
-
-        <div class="do-not-like-list">
-          <h2>What I <span>don't</span> like</h2>
-          <div class="container">
-            <ul class="list-group">
-              <li class="list-group-item">Lorem ipsum dolor sit amet.</li>
-              <li class="list-group-item">Lorem ipsum dolor sit.</li>
-              <li class="list-group-item">
-                Lorem ipsum dolor sit amet consectetur.
-              </li>
-            </ul>
-          </div>
+        <div class="container-sm mb-5">
+          <h2 class="mb-3">What I <span>don't</span> like</h2>
+          <ul class="list-group">
+            <li class="list-group-item">Lorem ipsum dolor sit amet.</li>
+            <li class="list-group-item">Lorem ipsum dolor sit.</li>
+            <li class="list-group-item">
+              Lorem ipsum dolor sit amet consectetur.
+            </li>
+          </ul>
         </div>
         <div>
-          <table class="table">
+          <table class="table mb-5">
             <thead>
               <tr>
                 <th>Episodes</th>
@@ -103,64 +102,69 @@
               </tr>
             </tbody>
           </table>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero ipsa
-            minima sed ut recusandae autem consequuntur repudiandae excepturi
-            iusto optio tempora vitae illo culpa unde expedita aliquam deleniti
-            temporibus, quidem dolorum. Provident enim, placeat
-            <span>libero</span> explicabo ratione iste officia iure assumenda,
-            doloremque mollitia consequatur. Adipisci autem accusantium
-            distinctio quaerat repellendus maxime non tempora officiis quae
-            atque dolorum repellat eius tenetur omnis corporis, exercitationem
-            inventore vel, eos aliquid. Fugiat libero hic vel odio sunt nisi,
-            officiis omnis, eos sit vero ipsam repudiandae. Officia, fugiat
-            aliquid nihil cum nesciunt commodi earum, consequuntur cumque
-            corrupti dicta at eum. Odio voluptatibus, nostrum officiis
-            perferendis, <span>laboriosam</span> eius laudantium iste quam culpa
-            voluptatem aspernatur.
-          </p>
+
+          <blockquote class="blockquote rounded text-bg-dark p-5 mb-5">
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
+              ipsa minima sed ut recusandae autem consequuntur repudiandae
+              excepturi iusto optio tempora vitae illo culpa unde expedita
+              aliquam deleniti temporibus, quidem dolorum. Provident enim,
+              placeat
+              <span>libero</span> explicabo ratione iste officia iure assumenda,
+              doloremque mollitia consequatur. Adipisci autem accusantium
+              distinctio quaerat repellendus maxime non tempora officiis quae
+              atque dolorum repellat eius tenetur omnis corporis, exercitationem
+              inventore vel, eos aliquid. Fugiat libero hic vel odio sunt nisi,
+              officiis omnis, eos sit vero ipsam repudiandae. Officia, fugiat
+              aliquid nihil cum nesciunt commodi earum, consequuntur cumque
+              corrupti dicta at eum. Odio voluptatibus, nostrum officiis
+              perferendis, <span>laboriosam</span> eius laudantium iste quam
+              culpa voluptatem aspernatur.
+            </p>
+          </blockquote>
         </div>
-        <div>
-          <form action="#">
-            <h3>Sign up here</h3>
-            <div>
-              <label for="username" class="form-label">Name: </label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Write your name..."
-              />
-            </div>
-            <div>
-              <label for="student" class="form-label">Student: </label>
-              <input type="checkbox" name="student" id="student" />
-            </div>
-            <div>
-              <label for="gender" class="form-label">Gender: </label>
-              <select name="gender" id="gender">
-                <option value="male">male</option>
-                <option value="female">female</option>
-                <option value="others">others</option>
-              </select>
-            </div>
-            <div>
-              <span>Are you a fan?</span>
-              <label for="fan" class="form-label">Yes</label>
-              <input type="radio" name="fan" id="fan" />
-              <label for="fan" class="form-label">No</label>
-              <input type="radio" name="fan" />
-            </div>
-            <br />
-            <div>
-              <button type="button" class="btn btn-secondary">Undo</button>
-              <button type="button" class="btn btn-primary">Submit</button>
-            </div>
-          </form>
-        </div>
-        <br />
-      </main>
-      <footer class="container-fluid">&copy; All rights reserved</footer>
-    </div>
+        <form
+          action="#"
+          class="mx-auto rounded border p-5 mb-5 w-25 d-flex flex-column"
+        >
+          <h3>Sign up here</h3>
+          <div>
+            <label for="username" class="form-label">Name: </label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Write your name..."
+            />
+          </div>
+          <div>
+            <label for="student" class="form-label">Student: </label>
+            <input type="checkbox" name="student" id="student" />
+          </div>
+          <div>
+            <label for="gender" class="form-label">Gender: </label>
+            <select name="gender" id="gender">
+              <option value="male">male</option>
+              <option value="female">female</option>
+              <option value="others">others</option>
+            </select>
+          </div>
+          <div>
+            <span>Are you a fan?</span>
+            <label for="fan" class="form-label">Yes</label>
+            <input type="radio" name="fan" id="fan" />
+            <label for="fan" class="form-label">No</label>
+            <input type="radio" name="fan" />
+          </div>
+          <div>
+            <button type="button" class="btn btn-secondary light">Undo</button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        <footer class="container-fluid p-3 bg-body-tertiary">
+          &copy; All rights reserved
+        </footer>
+      </div>
+    </main>
   </body>
 </html>
