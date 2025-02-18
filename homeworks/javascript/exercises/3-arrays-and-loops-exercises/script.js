@@ -65,3 +65,13 @@ console.log(doesNameExist(names, 'Sam')); // true
 console.log(doesNameExist(names, 'Tanya')); // false
 
 // Exercise-6
+let evenNumbers = [];
+
+for (let i = 1; i < 21; i++) {
+  if (i % 2 == 0) {
+    evenNumbers.push(i);
+  }
+  evenNumbers;
+}
+
+console.log(evenNumbers); // Output: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
