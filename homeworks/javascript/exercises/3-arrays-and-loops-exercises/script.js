@@ -44,3 +44,24 @@ function findLargestNumber(arr) {
 // Test function findLargestNumber:
 findLargestNumber([]); // Output: Array is empty.
 findLargestNumber([10, 96, 3, 84, 7]); // Output: Largest number: 96
+
+// Exercise-4
+const wordsArr = ['Hello', 'my', 'friend!'];
+sentence = '';
+for (let i = 0; i < wordsArr.length; i++) {
+  sentence += wordsArr[i] + ' ';
+}
+console.log(sentence);
+
+// Exercise-5
+function doesNameExist(arr, name) {
+  console.log(arr, name);
+  return arr.includes(name);
+}
+
+// Test function doesNameExist
+let names = ['Daria', 'Sam', 'Alina', 'Reham', 'Divya'];
+console.log(doesNameExist(names, 'Sam')); // true
+console.log(doesNameExist(names, 'Tanya')); // false
+
+// Exercise-6
