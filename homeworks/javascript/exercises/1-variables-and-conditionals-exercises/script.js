@@ -1,4 +1,4 @@
-// Part 1
+// Exercise-1
 var age = 15;
 if (age >= 18) {
   console.log('You can vote.');
@@ -6,7 +6,7 @@ if (age >= 18) {
   console.log('You cannot vote.');
 }
 
-// Part 2
+// Exercise-2
 const userName = prompt('Enter your name:');
 
 if (userName === 'John') {

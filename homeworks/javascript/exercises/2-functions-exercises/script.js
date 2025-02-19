@@ -1,4 +1,4 @@
-// Part 1
+// Exercise-1
 function addNumbers(number1, number2) {
   return number1 + number2;
 }
@@ -8,7 +8,7 @@ console.log(addNumbers(-3, 7)); // Output: 4
 console.log(addNumbers(2.5, 3.5)); // Output: 6
 console.log(addNumbers(100, 200)); // Output: 300
 
-// Part 2
+// Exercise-2
 function reverseString(str) {
   return str.split('').reverse().join('');
 }
