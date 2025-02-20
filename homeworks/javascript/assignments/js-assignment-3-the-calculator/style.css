@@ -21,7 +21,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    max-width: 260px;
+    max-width: 350px;
     max-height: 500px;
     margin: auto;
 
@@ -42,12 +42,12 @@ img {
 }
 
 .equal-sign {
-    height: 96%;
+    height: 97%;
     grid-area: 2/ 4/ 6/ 5;
 }
 
 .equal-sign:hover {
-    background-color: #465071 !important;
+    background-color: #3d5f50 !important;
 }
 
 .keys {
