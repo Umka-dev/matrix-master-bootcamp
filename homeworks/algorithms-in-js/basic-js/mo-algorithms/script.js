@@ -79,7 +79,7 @@
 // function findMax(arr) {
 //   if (arr.length === 0) {
 //     console.log('Array is empty');
-//     return null;
+//     return;
 //   }
 
 //   let max = arr[0];
@@ -120,7 +120,7 @@
 // function findAverage(arr) {
 //   if (arr.length === 0) {
 //     console.log('Array is empty');
-//     return null;
+//     return;
 //   }
 
 //   let sum = 0;
@@ -140,3 +140,47 @@
 // findAverage([]);
 // findAverage([3, 0, 6, 2, 8]);
 // findAverage([43, -6, 66, 2, 8, 99, -16]);
+
+//7. Eliminate the Negatives
+// Given an array X, write a program that will remove all negative numbers and replace them with a 0. For example, for array X = [2,-1,4,-3] the output of your program should be
+// [2,0,4,0]
+
+//My Solution:
+// Create a variable with the given array X
+// Create a function to reuse with the different arrays
+// Check if the array is empty first
+// If it is empty then stop execution by returning early
+// Start looping through the existed array elements from index 0 to the last one
+// Create a variable with a new empty array
+// Check If the current element has negative value
+// If 'yes' replace it with 0
+// If 'not' take next element
+// Push current element to a new array
+// Print new array with no negative elements
+// Test the code
+
+const X = [2, -3, 1];
+function eliminateNegatives(arr) {
+  if (arr.length === 0) {
+    console.log('Array is empty');
+    return;
+  }
+
+  let newArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < 0) {
+      arr[i] = 0;
+    }
+    newArr.push(arr[i]);
+  }
+
+  console.log('New array: ', newArr);
+}
+
+eliminateNegatives(X);
+
+// Test the code
+eliminateNegatives([]);
+eliminateNegatives([3, 0, -6, 2, -8]);
+eliminateNegatives([43, -6, 66, 2, 8, 99, -16]);
