@@ -159,8 +159,55 @@
 // Print new array with no negative elements
 // Test the code
 
+// const X = [2, -3, 1];
+// function eliminateNegatives(arr) {
+//   if (arr.length === 0) {
+//     console.log('Array is empty');
+//     return;
+//   }
+
+//   let newArr = [];
+
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] < 0) {
+//       arr[i] = 0;
+//     }
+//     newArr.push(arr[i]);
+//   }
+
+//   console.log('New array: ', newArr);
+// }
+
+// eliminateNegatives(X);
+
+// Test the code
+// eliminateNegatives([]);
+// eliminateNegatives([3, 0, -6, 2, -8]);
+// eliminateNegatives([43, -6, 66, 2, 8, 99, -16]);
+
+//8. Number to String
+// Write a program that takes an array of numbers and turns the negative values into strings.
+// For example,
+// For array
+// const x= [1,-4,0,-1]
+// The output should be [1,'Turing,0,'Turing'].
+
+//My Solution:
+// Create a variable with the given array X
+// Create a function to reuse with the different arrays
+// Check if the array is empty first
+// If it is empty then stop execution by returning early
+// Start looping through the existed array elements from index 0 to the last one
+// Create a variable with a new empty array
+// Check If the current element has negative value
+// If 'yes' replace it with 'text'
+// If 'not' take next element
+// Push current element to a new array
+// Print new array with no negative elements
+// Test the code
+
 const X = [2, -3, 1];
-function eliminateNegatives(arr) {
+function replaceNegatives(arr) {
   if (arr.length === 0) {
     console.log('Array is empty');
     return;
@@ -170,7 +217,7 @@ function eliminateNegatives(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] < 0) {
-      arr[i] = 0;
+      arr[i] = 'text';
     }
     newArr.push(arr[i]);
   }
@@ -178,9 +225,9 @@ function eliminateNegatives(arr) {
   console.log('New array: ', newArr);
 }
 
-eliminateNegatives(X);
+replaceNegatives(X);
 
 // Test the code
-eliminateNegatives([]);
-eliminateNegatives([3, 0, -6, 2, -8]);
-eliminateNegatives([43, -6, 66, 2, 8, 99, -16]);
+replaceNegatives([]);
+replaceNegatives([3, 0, -6, 2, -8]);
+replaceNegatives([43, -6, 66, 2, 8, 99, -16]);
