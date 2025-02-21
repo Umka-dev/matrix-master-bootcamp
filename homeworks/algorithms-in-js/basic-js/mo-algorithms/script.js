@@ -99,3 +99,44 @@
 // findMax([43, -6, 65, 2, 8, 99, 16]);
 // findMax([3, 0, 6, 2, -8]);
 // findMax([]);
+
+//6. Get Average
+// Given an array X, write a program that will return the average value of all elements in the array. For example, for array X = [2,1,3] your output should be 2.
+
+//My Solution:
+// Create a variable with the given array X
+// Create a function to reuse with the different arrays
+// Check if the array is empty first
+// If it is empty then stop execution by returning early
+// Create the variables average=0 and sum=0;
+// Create a function for searching average value of all array elements
+// Start looping through the existed array elements from index 0 to the last one
+// Calculate the sum of all arr elements
+// Calculate the average value deviding sum to array length
+// Print average value
+// Test the code
+
+// const X = [2, 3, 1];
+// function findAverage(arr) {
+//   if (arr.length === 0) {
+//     console.log('Array is empty');
+//     return null;
+//   }
+
+//   let sum = 0;
+
+//   for (let i = 0; i < arr.length; i++) {
+//     sum = sum + arr[i];
+//   }
+//   let average = sum / arr.length;
+
+//   console.log('Sum: ', sum);
+//   console.log('Average of all elements: ', average);
+// }
+
+// findAverage(X);
+
+// Test the code
+// findAverage([]);
+// findAverage([3, 0, 6, 2, 8]);
+// findAverage([43, -6, 66, 2, 8, 99, -16]);
