@@ -32,8 +32,70 @@
 //Create a For loop for numbers from 1 to 135 which do next:
 //1) calculates: current sum + current number and save result in variable sum
 //2) print: current number and current sum
-let sum = 0;
-for (let i = 1; i < 136; i++) {
-  sum = sum + i;
-  console.log('Number is: ' + i + '; Sum:' + sum);
-}
+// let sum = 0;
+// for (let i = 1; i < 136; i++) {
+//   sum = sum + i;
+//   console.log('Number is: ' + i + '; Sum:' + sum);
+// }
+
+//4. Print the elements of an array
+// Given an array X = [1,4,2,12], write a program that will iterate through the array and print all numbers on the screen. Your program should work with arrays of all sizes.
+
+//My Solution:
+// Create a variable with the given array X
+// Create a For loop for numbers from the existed array from index 0 to last
+// Print an every array element
+// Test the code with other arrays
+
+// let arrX = [1, 4, 2, 12];
+// for (let i = 0; i < arrX.length; i++) {
+//   console.log(arrX[i]);
+// }
+
+// Test the code
+// arrX = [1, 4, 2, 12, 5, 48];
+// for (let i = 0; i < arrX.length; i++) {
+//   console.log(arrX[i]);
+// }
+
+// 5. Find Max
+// Given an array X, write a program that would find the maximum value of the array. Your program should work also work with negative values (eg. X = [2,-3,-1]) and zero.
+
+//My Solution:
+// Create a variable with the given array X
+// Create a function for checking different arrays
+// Check if the array is empty first
+// If it is empty then stop execution by returning early
+// Create a variable for max element equal first array element value with index=0
+// Start looping through the existed array elements from index 1 to the last one
+// Compare every element value with max
+// If current element value is bigger then max then max = current element
+// Increase the index to 1
+// Repeat For loop with If condion and max assigning untill the end of array
+// Print max element and retur the result of the function
+//Test the code using the different arrays: run function with different props
+
+// const X = [2, -3, -1];
+// function findMax(arr) {
+//   if (arr.length === 0) {
+//     console.log('Array is empty');
+//     return null;
+//   }
+
+//   let max = arr[0];
+
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i] > max) {
+//       max = arr[i];
+//     }
+//   }
+//   console.log('Max element: ', max);
+//   return max;
+// }
+
+// findMax(X);
+
+// Test the code
+// findMax([43, -6, 65, 2, 8, 99, 16]);
+// findMax([3, 0, 6, 2, -8]);
+// findMax([]);
