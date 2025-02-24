@@ -74,16 +74,15 @@
 // 0 1 1 2 3 5 8 13 21...
 
 // My Solution:
-// Create an empty array with 0 and 1 elements
-// For loop from i=1 to 1000000
-// Condition If i>1 add to array new element which is sum of elements with indexes 0 and 1: arr.push(arr[0]+arr[i])
-// Else add element as it is
+// Create an array with 0 and 1 elements
+// For loop from upto 1000000
+// Create a variable for next Fibonacci number
+// Add this element to array
 // Print array
-// let arrFibonacci = [];
-// for (let i = 0; i < 1000000; i++) {
-//   if (i < 2) {
-//     arrFibonacci = [0, 1];
-//   } else arrFibonacci[i] = arrFibonacci[i - 1] + arrFibonacci[i - 2];
+// let arrFibonacci = [0, 1];
+// for (let i = 2; i < 100 - 1; i++) {
+//   let nextFib = arrFibonacci[i - 1] + arrFibonacci[i - 2];
+//   arrFibonacci.push(nextFib);
 // }
 
 // console.log(arrFibonacci);
