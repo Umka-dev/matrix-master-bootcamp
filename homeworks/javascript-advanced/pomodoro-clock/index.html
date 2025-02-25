@@ -28,13 +28,17 @@
         class="timer-times container d-flex flex-row justify-content-around mb-2"
       >
         <!-- Work timer -->
-        <div id="session-timer">
-          <p id="session-time" class="text-center fs-2">5 sec</p>
+        <div id="session-timer" class="d-flex align-items-center gap-2">
+          <button id="session-decrease" class="btn btn-sm text-white">-</button>
+          <p id="session-time" class="fs-2 m-0">5</p>
+          <button id="session-increase" class="btn btn-sm text-white">+</button>
         </div>
 
         <!-- Break timer -->
-        <div id="break-timer">
-          <p id="break-time" class="text-center fs-2">3 sec</p>
+        <div id="break-timer" class="d-flex align-items-center gap-2">
+          <button id="break-decrease" class="btn btn-sm text-white">-</button>
+          <p id="break-time" class="fs-2 m-0">3</p>
+          <button id="break-increase" class="btn btn-sm text-white">+</button>
         </div>
       </div>
 

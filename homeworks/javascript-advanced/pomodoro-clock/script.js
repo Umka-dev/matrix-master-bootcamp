@@ -54,8 +54,32 @@ const resetTimer = () => {
   updateDisplay();
 };
 
+const changeTime = (type, amount) => {
+  if (type === 'session') {
+    sessionTime = Math.max(1, sessionTime + amount); // Минимум 1 секунда
+    if (mode === 'session') timeLeft = sessionTime;
+  } else {
+    breakTime = Math.max(1, breakTime + amount);
+    if (mode === 'break') timeLeft = breakTime;
+  }
+  updateDisplay();
+};
+
 document.getElementById('start').addEventListener('click', startTimer);
 document.getElementById('stop').addEventListener('click', stopTimer);
 document.getElementById('reset').addEventListener('click', resetTimer);
+
+document
+  .getElementById('session-increase')
+  .addEventListener('click', () => changeTime('session', 1));
+document
+  .getElementById('session-decrease')
+  .addEventListener('click', () => changeTime('session', -1));
+document
+  .getElementById('break-increase')
+  .addEventListener('click', () => changeTime('break', 1));
+document
+  .getElementById('break-decrease')
+  .addEventListener('click', () => changeTime('break', -1));
 
 updateDisplay();
