@@ -33,14 +33,6 @@ img {
     font-size: 26px;
 }
 
-#session-time {
-    color: rgb(14, 162, 115);
-}
-
-#break-time {
-    color: rgb(178, 33, 7);
-}
-
 .buttons button {
     color: #efefef;
     border-color: #efefef;

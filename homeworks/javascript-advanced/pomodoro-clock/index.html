@@ -20,8 +20,8 @@
 
     <div class="timer-container">
       <div class="timer-names container d-flex flex-row justify-content-around">
-        <p class="text-center">Session (sec):</p>
-        <p class="text-center">Break (sec):</p>
+        <p class="text-center">Session:</p>
+        <p class="text-center">Break:</p>
       </div>
 
       <div
@@ -29,12 +29,12 @@
       >
         <!-- Work timer -->
         <div id="session-timer">
-          <p id="session-time" class="text-center fs-2">10</p>
+          <p id="session-time" class="text-center fs-2">5 sec</p>
         </div>
 
         <!-- Break timer -->
         <div id="break-timer">
-          <p id="break-time" class="text-center fs-2">5</p>
+          <p id="break-time" class="text-center fs-2">3 sec</p>
         </div>
       </div>
 
@@ -49,6 +49,9 @@
           Reset
         </button>
       </div>
+      <p id="display-timer" class="fs-2 text-center mt-3 text-success">
+        SESSION
+      </p>
     </div>
   </body>
 </html>

@@ -7,63 +7,55 @@
 // User Story: I can reset the clock for my next Pomodoro.
 // User Story: I can customize the length of each Pomodoro.
 
-let sessionTime = parseInt(
-  document.getElementById('session-time').textContent,
-  10
-);
-let breakTime = parseInt(document.getElementById('break-time').textContent, 10);
+const getTime = (id) => parseInt(document.getElementById(id).textContent, 10);
 
-let isSession = true;
+let sessionTime = getTime('session-time');
+let breakTime = getTime('break-time');
 let timeLeft = sessionTime;
-let timer;
-let isRunning = false;
+let mode = 'session';
+let timer = null;
 
-const updateDisplay = (time, elementId) => {
-  document.getElementById(elementId).textContent = time;
-};
+const updateDisplay = () => {
+  document.getElementById('session-time').textContent = sessionTime;
+  document.getElementById('break-time').textContent = breakTime;
 
-const switchSession = () => {
-  isSession = !isSession;
-  timeLeft = isSession ? sessionTime : breakTime;
-  let displayId = isSession ? 'session-time' : 'break-time';
-  updateDisplay(timeLeft, displayId);
+  const displayTimer = document.getElementById('display-timer');
+  displayTimer.textContent = `${mode.toUpperCase()}: ${timeLeft} sec`;
+
+  displayTimer.classList.toggle('text-success', mode === 'session');
+  displayTimer.classList.toggle('text-danger', mode === 'break');
 };
 
 const startTimer = () => {
-  if (isRunning) return;
-  isRunning = true;
-
-  let displayId = isSession ? 'session-time' : 'break-time';
-  updateDisplay(timeLeft, displayId);
+  if (timer) return;
 
   timer = setInterval(() => {
-    timeLeft--;
-
-    if (timeLeft < 0) {
-      clearInterval(timer);
-      isRunning = false;
-      switchSession();
-      startTimer();
+    if (timeLeft > 0) {
+      timeLeft--;
     } else {
-      updateDisplay(timeLeft, displayId);
+      mode = mode === 'session' ? 'break' : 'session';
+      timeLeft = mode === 'session' ? sessionTime : breakTime;
     }
+    updateDisplay();
   }, 1000);
 };
 
-const pauseTimer = () => {
+const stopTimer = () => {
   clearInterval(timer);
-  isRunning = false;
+  timer = null;
 };
 
 const resetTimer = () => {
-  clearInterval(timer);
-  isRunning = false;
-  isSession = true;
+  stopTimer();
+  sessionTime = getTime('session-time');
+  breakTime = getTime('break-time');
   timeLeft = sessionTime;
-  updateDisplay(sessionTime, 'session-time');
-  updateDisplay(breakTime, 'break-time');
+  mode = 'session';
+  updateDisplay();
 };
 
 document.getElementById('start').addEventListener('click', startTimer);
-document.getElementById('stop').addEventListener('click', pauseTimer);
+document.getElementById('stop').addEventListener('click', stopTimer);
 document.getElementById('reset').addEventListener('click', resetTimer);
+
+updateDisplay();
