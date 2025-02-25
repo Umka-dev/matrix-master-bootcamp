@@ -56,7 +56,7 @@ const resetTimer = () => {
 
 const changeTime = (type, amount) => {
   if (type === 'session') {
-    sessionTime = Math.max(1, sessionTime + amount); // Минимум 1 секунда
+    sessionTime = Math.max(1, sessionTime + amount);
     if (mode === 'session') timeLeft = sessionTime;
   } else {
     breakTime = Math.max(1, breakTime + amount);
