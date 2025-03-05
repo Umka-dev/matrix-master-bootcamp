@@ -1,0 +1,39 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+/*-------------*/
+
+/* All page settings */
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 400px;
+    max-height: 500px;
+    margin: auto;
+    padding: 40px 20px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+}
+
+.buttons button {
+    color: #efefef;
+    border-color: #efefef;
+}

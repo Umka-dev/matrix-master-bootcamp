@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Clock</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body
+    class="container flex-sm-column justify-content-center bg-dark text-white"
+  >
+    <h1 class="fs-1 text-center mt-5 mb-5">Pomodoro Timer</h1>
+
+    <div class="timer-container">
+      <div class="timer-names container d-flex flex-row justify-content-around">
+        <p class="text-center">Session:</p>
+        <p class="text-center">Break:</p>
+      </div>
+
+      <div
+        class="timer-times container d-flex flex-row justify-content-around mb-2"
+      >
+        <!-- Work timer -->
+        <div id="session-timer" class="d-flex align-items-center gap-2">
+          <button id="session-decrease" class="btn btn-sm text-white">-</button>
+          <p id="session-time" class="fs-2 m-0">25</p>
+          <button id="session-increase" class="btn btn-sm text-white">+</button>
+        </div>
+
+        <!-- Break timer -->
+        <div id="break-timer" class="d-flex align-items-center gap-2">
+          <button id="break-decrease" class="btn btn-sm text-white">-</button>
+          <p id="break-time" class="fs-2 m-0">5</p>
+          <button id="break-increase" class="btn btn-sm text-white">+</button>
+        </div>
+      </div>
+
+      <div class="buttons d-flex justify-content-evenly gap-4">
+        <button id="start" type="button" class="btn btn-outline-success">
+          Start
+        </button>
+        <button id="stop" type="button" class="btn btn-outline-primary">
+          Pause
+        </button>
+        <button id="reset" type="button" class="btn btn-outline-secondary">
+          Reset
+        </button>
+      </div>
+      <p id="display-timer" class="fs-2 text-center mt-3 text-success">
+        SESSION -- 25:00
+      </p>
+    </div>
+  </body>
+</html>
