@@ -47,7 +47,7 @@ const wait = (msec) => {
   });
 };
 
-wait(3000);
+wait(2000);
 
 // Exercise 4 - Submission Instructions
 // Create an HTML file and a corresponding JavaScript file to complete the assignment. Implement the tasks in the JavaScript file and include it in the HTML file using the `<script>` tag. Test your code thoroughly, ensuring that each task is working correctly. Save both files and submit them together.
