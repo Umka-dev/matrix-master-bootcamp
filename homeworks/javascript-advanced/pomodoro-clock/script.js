@@ -9,18 +9,29 @@
 
 const getTime = (id) => parseInt(document.getElementById(id).textContent, 10);
 
-let sessionTime = getTime('session-time');
-let breakTime = getTime('break-time');
-let timeLeft = sessionTime;
+// Keep time in minutes
+let sessionMinutes = getTime('session-time');
+let breakMinutes = getTime('break-time');
+
+// Convert time to seconds
+let timeLeft = sessionMinutes * 60;
+
 let mode = 'session';
 let timer = null;
 
+// Format sec to MM:SS
+const formatTime = (seconds) => {
+  const minutes = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+};
+
 const updateDisplay = () => {
-  document.getElementById('session-time').textContent = sessionTime;
-  document.getElementById('break-time').textContent = breakTime;
+  document.getElementById('session-time').textContent = sessionMinutes;
+  document.getElementById('break-time').textContent = breakMinutes;
 
   const displayTimer = document.getElementById('display-timer');
-  displayTimer.textContent = `${mode.toUpperCase()}: ${timeLeft} sec`;
+  displayTimer.textContent = `${mode.toUpperCase()} -- ${formatTime(timeLeft)}`;
 
   displayTimer.classList.toggle('text-success', mode === 'session');
   displayTimer.classList.toggle('text-danger', mode === 'break');
@@ -33,8 +44,13 @@ const startTimer = () => {
     if (timeLeft > 0) {
       timeLeft--;
     } else {
-      mode = mode === 'session' ? 'break' : 'session';
-      timeLeft = mode === 'session' ? sessionTime : breakTime;
+      if (mode === 'session') {
+        mode = 'break';
+        timeLeft = breakMinutes * 60; // switch to break
+      } else {
+        mode = 'session';
+        timeLeft = sessionMinutes * 60; // switch to session
+      }
     }
     updateDisplay();
   }, 1000);
@@ -47,24 +63,25 @@ const stopTimer = () => {
 
 const resetTimer = () => {
   stopTimer();
-  sessionTime = getTime('session-time');
-  breakTime = getTime('break-time');
-  timeLeft = sessionTime;
+  sessionMinutes = getTime('session-time');
+  breakMinutes = getTime('break-time');
+  timeLeft = sessionMinutes * 60;
   mode = 'session';
   updateDisplay();
 };
 
 const changeTime = (type, amount) => {
   if (type === 'session') {
-    sessionTime = Math.max(1, sessionTime + amount);
-    if (mode === 'session') timeLeft = sessionTime;
+    sessionMinutes = Math.max(1, sessionMinutes + amount);
+    if (mode === 'session') timeLeft = sessionMinutes * 60;
   } else {
-    breakTime = Math.max(1, breakTime + amount);
-    if (mode === 'break') timeLeft = breakTime;
+    breakMinutes = Math.max(1, breakMinutes + amount);
+    if (mode === 'break') timeLeft = breakMinutes * 60;
   }
   updateDisplay();
 };
 
+// Events
 document.getElementById('start').addEventListener('click', startTimer);
 document.getElementById('stop').addEventListener('click', stopTimer);
 document.getElementById('reset').addEventListener('click', resetTimer);
