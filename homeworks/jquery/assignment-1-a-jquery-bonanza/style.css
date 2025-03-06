@@ -1,0 +1,32 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+/* All page settings */
+.page-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* max-width: 1000px; */
+    margin: auto;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.myClass {
+    background: #0dcaf0;
+}
