@@ -16,3 +16,49 @@
 // n = 881 -> x
 
 // My solution
+// Define function that takes array of two first elements and number n as the parametrs
+// Assume that i=n-1;
+// For loop for i from 2nd index to n
+// Calculate next element of sequence arr[i]=arr[i-2]+arr[i-1]
+// Return arr[n-1]
+
+const fibonacciSequence = (arr, n) => {
+  // console.log(arr, n);
+  for (let i = 2; i <= n; i++) {
+    arr[i] = arr[i - 2] + arr[i - 1];
+    // console.log(i, arr[i]);
+  }
+  return arr[n - 1];
+};
+
+console.log(`4th element = `, fibonacciSequence([1, 1], 4)); // 3
+console.log(`7th element = `, fibonacciSequence([1, 1], 7)); // 13
+console.log(`43th element = `, fibonacciSequence([1, 1], 43)); // 433494437
+console.log(`101th element = `, fibonacciSequence([1, 1], 101)); // 573147844013817200000
+console.log(`227th element = `, fibonacciSequence([1, 1], 227)); // 1.2322798146364122e+47
+console.log(`491th element = `, fibonacciSequence([1, 1], 491)); // 1.8341986124518392e+102
+console.log(`881th element = `, fibonacciSequence([1, 1], 881)); // 5.869837224475641e+183
+
+// Other better solution
+// Define a function that takes a number as the nth
+// Condition for two first elements = 1;
+// Define variables that keep previous and current element values
+// For loop starts from 3rd element until n
+// Calculate next element value
+// Change prev and curr
+// Return current nth element of the Fibonacci sequence
+const fibonacci = (n) => {
+  if (n === 1 || n === 2) return 1;
+  let prev = 1,
+    curr = 1;
+  for (let i = 3; i <= n; i++) {
+    const next = prev + curr;
+    prev = curr;
+    curr = next;
+  }
+  return curr;
+};
+
+console.log(fibonacci(4)); // 3
+console.log(fibonacci(7)); // 13
+console.log(fibonacci(43)); // 433494437
