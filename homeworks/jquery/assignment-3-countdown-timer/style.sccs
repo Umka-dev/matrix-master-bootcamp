@@ -1,0 +1,4 @@
+$display-font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+);
