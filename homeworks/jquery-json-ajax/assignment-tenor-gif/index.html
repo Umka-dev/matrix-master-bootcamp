@@ -16,7 +16,30 @@
   <body
     class="container d-flex flex-column justify-content-center bg-light text-black"
   >
-    <h1 class="fs-1 text-center fw-normal mt-5 mb-5">Tenor Gif</h1>
+    <h1 class="fs-4 text-start fw-normal mt-5 mb-1">API workshop</h1>
+    <h2 class="fs-5 text-start fw-normal mb-2">GIF FETCH API</h2>
+
+    <!-- Form to type search requests -->
+    <form class="input-group row d-flex flex-row mb-3">
+      <div class="col-11">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          class="form-control"
+          placeholder="Input search request"
+        />
+      </div>
+      <div class="col-1">
+        <button class="btn btn-outline-secondary" class="btn btn-info">
+          Search
+        </button>
+      </div>
+    </form>
+    <!-- Gallery of the images from API -->
+    <div id="gallery" class="container text-center">
+      <!-- <img src="..." class="rounded" alt="..." /> -->
+    </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </html>
