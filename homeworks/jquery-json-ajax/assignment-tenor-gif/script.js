@@ -18,3 +18,33 @@
 // XMLHttpRequest to make an API call to a Tenor server
 // Display a result on the page HTML under the input such as the picture above
 // Submit the result on GitHub before Tuesday at 22:00.
+// AIzaSyAYb7c2PInquK8QXUqgr6I4-lyWVPq3SsA
+$(document).ready(() => {
+  // Create AJAX request to GET data
+  $.ajax({
+    method: 'GET',
+    url: 'https://api.tenor.com/v1/search?q=excited&key=LIVDSRZULELA&limit=8',
+    dataType: 'json',
+  }).done((data) => {
+    console.log(data);
+
+    // Search request
+    $('#searchBtn').click((e) => {
+      e.preventDefault();
+      const searhRequest = $('#search').val();
+      let url =
+        'https://api.tenor.com/v1/search?q=excited&key=LIVDSRZULELA&limit=8';
+      $.post(url, { data }).done((data) => {
+        $.map(data, (res) => {
+          $('#gallery').append(`<p>${res}</p>`);
+        });
+      });
+    });
+
+    // $.map(data, (res) => {
+    //   $('#gallery').append(`<p>${res}</p>`);
+    // });
+
+    return;
+  });
+});
