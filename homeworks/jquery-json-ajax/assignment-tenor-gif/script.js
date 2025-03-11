@@ -18,33 +18,64 @@
 // XMLHttpRequest to make an API call to a Tenor server
 // Display a result on the page HTML under the input such as the picture above
 // Submit the result on GitHub before Tuesday at 22:00.
-// AIzaSyAYb7c2PInquK8QXUqgr6I4-lyWVPq3SsA
+// API_KEY = "LIVDSRZULELA"; // for testing
+// API_KEY = 'AIzaSyD0G46IQVDe8Olzeb4FZ_YeHw3ePjhGQA8'; // generated key
+
 $(document).ready(() => {
-  // Create AJAX request to GET data
-  $.ajax({
-    method: 'GET',
-    url: 'https://api.tenor.com/v1/search?q=excited&key=LIVDSRZULELA&limit=8',
-    dataType: 'json',
-  }).done((data) => {
-    console.log(data);
+  const API_KEY = 'AIzaSyD0G46IQVDe8Olzeb4FZ_YeHw3ePjhGQA8';
+  const CLIENT_KEY = 'tenor-gif-gallery';
+  const BASE_URL = 'https://tenor.googleapis.com/v2/search';
+  const LIMIT = 8;
 
-    // Search request
-    $('#searchBtn').click((e) => {
-      e.preventDefault();
-      const searhRequest = $('#search').val();
-      let url =
-        'https://api.tenor.com/v1/search?q=excited&key=LIVDSRZULELA&limit=8';
-      $.post(url, { data }).done((data) => {
-        $.map(data, (res) => {
-          $('#gallery').append(`<p>${res}</p>`);
-        });
-      });
+  // Function to fetch GIFs with AJAX
+  const fetchGif = (searchQuery) => {
+    $.ajax({
+      method: 'GET',
+      url: `${BASE_URL}?q=${searchQuery}&key=${API_KEY}&client_key=${CLIENT_KEY}&limit=${LIMIT}`,
+      dataType: 'json',
+      success: function (response) {
+        displayGIFs(response);
+        console.log(response);
+      },
+      error: function (error) {
+        console.error(`Request error:`, error);
+      },
     });
+  };
 
-    // $.map(data, (res) => {
-    //   $('#gallery').append(`<p>${res}</p>`);
-    // });
+  // Function to display GIFs
+  const displayGIFs = (response) => {
+    if (!response.results || response.results.length === 0) {
+      console.log('No results');
+      return;
+    }
 
-    return;
+    // Clear gallery before add new GIFs
+    $('#gallery').empty();
+
+    $.each(response.results, (index, gif) => {
+      // Get links for GIF
+      let gifUrl = gif.media_formats.gif.url;
+      let imgElement = `<img src="${gifUrl}" class="rounded m-2" alt="GIF">`;
+      $('#gallery').append(imgElement);
+    });
+  };
+
+  // Function to start fetching
+  const grabData = (searchTerm = 'excited') => {
+    fetchGif(searchTerm);
+  };
+
+  // Get user request from the input
+  $('#searchBtn').click((e) => {
+    e.preventDefault();
+    let userRequest = $('#search').val().trim();
+
+    if (userRequest) {
+      grabData(userRequest);
+    }
   });
+
+  // Start when the page load
+  grabData();
 });
