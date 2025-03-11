@@ -21,7 +21,7 @@
 // API_KEY = "LIVDSRZULELA"; // for testing
 
 $(document).ready(() => {
-  const API_KEY = 'AIzaSyD0G46IQVDe8Olzeb4FZ_YeHw3ePjhGQA8';
+  const API_KEY = 'your_secret_api_key'; // Put your uniq API key here
   const CLIENT_KEY = 'tenor-gif-gallery';
   const BASE_URL = 'https://tenor.googleapis.com/v2/search';
   const LIMIT = 10;
