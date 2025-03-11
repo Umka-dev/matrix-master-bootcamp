@@ -19,13 +19,12 @@
 // Display a result on the page HTML under the input such as the picture above
 // Submit the result on GitHub before Tuesday at 22:00.
 // API_KEY = "LIVDSRZULELA"; // for testing
-// API_KEY = 'AIzaSyD0G46IQVDe8Olzeb4FZ_YeHw3ePjhGQA8'; // generated key
 
 $(document).ready(() => {
   const API_KEY = 'AIzaSyD0G46IQVDe8Olzeb4FZ_YeHw3ePjhGQA8';
   const CLIENT_KEY = 'tenor-gif-gallery';
   const BASE_URL = 'https://tenor.googleapis.com/v2/search';
-  const LIMIT = 8;
+  const LIMIT = 10;
 
   // Function to fetch GIFs with AJAX
   const fetchGif = (searchQuery) => {
@@ -55,14 +54,20 @@ $(document).ready(() => {
 
     $.each(response.results, (index, gif) => {
       // Get links for GIF
-      let gifUrl = gif.media_formats.gif.url;
-      let imgElement = `<img src="${gifUrl}" class="rounded m-2" alt="GIF">`;
+      let gifUrl = gif.media_formats.tinygif.url;
+      let imgElement = `<img src="${gifUrl}" class="m-2" alt="GIF">`;
       $('#gallery').append(imgElement);
     });
   };
 
   // Function to start fetching
-  const grabData = (searchTerm = 'excited') => {
+  const grabData = (searchTerm) => {
+    if (searchTerm === undefined) {
+      // searchTerm = 'ecxited';
+      $('#gallery').hide();
+    } else {
+      $('#gallery').show();
+    }
     fetchGif(searchTerm);
   };
 
