@@ -20,67 +20,125 @@
 // Submit the result on GitHub before Tuesday at 22:00.
 // API_KEY = "LIVDSRZULELA"; // for testing
 
-$(document).ready(() => {
-  const API_KEY = 'your_secret_api_key'; // Put your uniq API key here
-  const CLIENT_KEY = 'tenor-gif-gallery';
-  const BASE_URL = 'https://tenor.googleapis.com/v2/search';
-  const LIMIT = 10;
+const API_KEY = '*******'; // Put your uniq API key here
+const BASE_URL = 'https://tenor.googleapis.com/v2/search';
+const LIMIT = 10;
+let userRequest = '';
 
-  // Function to fetch GIFs with AJAX
-  const fetchGif = (searchQuery) => {
-    $.ajax({
-      method: 'GET',
-      url: `${BASE_URL}?q=${searchQuery}&key=${API_KEY}&client_key=${CLIENT_KEY}&limit=${LIMIT}`,
-      dataType: 'json',
-      success: function (response) {
-        displayGIFs(response);
-        console.log(response);
-      },
-      error: function (error) {
-        console.error(`Request error:`, error);
-      },
-    });
-  };
+// Function to async fetch data from API using XMLHttpRequest
+const httpGetAsync = (theUrl, callback) => {
+  // create the request object
+  let xmlHttp = new XMLHttpRequest();
 
-  // Function to display GIFs
-  const displayGIFs = (response) => {
-    if (!response.results || response.results.length === 0) {
-      console.log('No results');
-      return;
+  // set the state change callback to capture when the response comes in
+  xmlHttp.onload = () => {
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+      // console.log('Server response: ', xmlHttp.responseText);
+      callback(xmlHttp.responseText);
     }
-
-    // Clear gallery before add new GIFs
-    $('#gallery').empty();
-
-    $.each(response.results, (index, gif) => {
-      // Get links for GIF
-      let gifUrl = gif.media_formats.tinygif.url;
-      let imgElement = `<img src="${gifUrl}" class="m-2" alt="GIF">`;
-      $('#gallery').append(imgElement);
-    });
   };
 
-  // Function to start fetching
-  const grabData = (searchTerm) => {
-    if (searchTerm === undefined) {
-      // searchTerm = 'ecxited';
-      $('#gallery').hide();
-    } else {
-      $('#gallery').show();
-    }
-    fetchGif(searchTerm);
-  };
+  // open as a GET call, pass in the url and set async = True
+  xmlHttp.open('GET', theUrl, true);
 
-  // Get user request from the input
+  // call send with no params as they were passed in on the url string
+  xmlHttp.send(null);
+};
+
+// Function to save user request from the input
+const saveUserSearch = () => {
   $('#searchBtn').click((e) => {
     e.preventDefault();
     let userRequest = $('#search').val().trim();
-
+    // If user inputed request and press the button
     if (userRequest) {
-      grabData(userRequest);
+      // Put user request to url with the API key and limit
+      let url = `${BASE_URL}?q=${userRequest}&key=${API_KEY}&limit=${LIMIT}`;
+      // Call async HTTP get request with the parameters
+      httpGetAsync(url, callback_search);
     }
   });
+};
 
-  // Start when the page load
-  grabData();
-});
+// Callback function to display 10 GIFs of user search
+function callback_search(responsetext) {
+  // Parse the JSON response
+  var response_objects = JSON.parse(responsetext);
+  // Form the array of response objects
+  searched_10_gifs = response_objects['results'];
+
+  // Clear gallery before add new GIFs
+  $('#gallery').empty();
+
+  $.each(searched_10_gifs, (index, gif) => {
+    // Get links for GIF
+    let gifUrl = gif.media_formats.tinygif.url;
+    // Create a HTML element as image with given source
+    let imgElement = `<img src="${gifUrl}" class="m-2" alt="GIF">`;
+    // Add image to the gallery div
+    $('#gallery').append(imgElement);
+  });
+}
+// Call function to listen to user requests
+saveUserSearch();
+
+// --------------------------------------------------------------------------------------------------------------
+// Solution using AJAX and jQuery requests
+// $(document).ready(() => {
+//   // Function to fetch GIFs with AJAX
+//   const fetchGif = (searchQuery) => {
+//     $.ajax({
+//       method: 'GET',
+//       url: `${BASE_URL}?q=${searchQuery}&key=${API_KEY}&limit=${LIMIT}`,
+//       dataType: 'json',
+//       success: function (response) {
+//         displayGIFs(response);
+//         console.log(response);
+//       },
+//       error: function (error) {
+//         console.error(`Request error:`, error);
+//       },
+//     });
+//   };
+
+//   // Function to display GIFs
+//   const displayGIFs = (response) => {
+//     if (!response.results || response.results.length === 0) {
+//       console.log('No results');
+//       return;
+//     }
+
+//     // Clear gallery before add new GIFs
+//     $('#gallery').empty();
+
+//     $.each(response.results, (index, gif) => {
+//       // Get links for GIF
+//       let gifUrl = gif.media_formats.tinygif.url;
+//       let imgElement = `<img src="${gifUrl}" class="m-2" alt="GIF">`;
+//       $('#gallery').append(imgElement);
+//     });
+//   };
+
+//   // Function to start fetching
+//   const grabData = (searchTerm) => {
+//     if (searchTerm === undefined) {
+//       $('#gallery').hide();
+//     } else {
+//       $('#gallery').show();
+//     }
+//     fetchGif(searchTerm);
+//   };
+
+//   // Get user request from the input
+//   $('#searchBtn').click((e) => {
+//     e.preventDefault();
+//     let userRequest = $('#search').val().trim();
+
+//     if (userRequest) {
+//       grabData(userRequest);
+//     }
+//   });
+
+//   // Start when the page load
+//   grabData();
+// });
