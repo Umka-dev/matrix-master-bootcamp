@@ -19,3 +19,5 @@
 // Moving further, we have 9 and 3. Again, their order is not correct and they are interchanged 1 5 4 3 9 7
 // The last pair in this round is 9 and 7. We see that again, 9 > 7, and switching them gives the array 1 5 4 3 7 9
 // Observe that at the end of this list of steps, the array is not yet sorted (not all of it), so we have to go again and apply the same techniques until it reaches this point 1 3 4 5 7 9
+
+// Solution
