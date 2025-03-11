@@ -21,3 +21,28 @@
 // Observe that at the end of this list of steps, the array is not yet sorted (not all of it), so we have to go again and apply the same techniques until it reaches this point 1 3 4 5 7 9
 
 // Solution
+// Define a function that takes an array as a parameter
+// Define a variable to hold the array length
+// For loop to iterate through the array from 0 to the length
+// For loop to iterate through the array from 0 to the length
+// Condition to compare the current element with the next one
+// Return the sorted array
+// Call the function
+
+const bubbleSort = (arr) => {
+  let length = arr.length;
+  for (let i = 0; i < length - 1; i++) {
+    for (let j = 0; j < length - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+};
+
+console.log(bubbleSort([2, 7, 9, 13, 8, 6, 5, 1, 3])); //  [1, 2, 3, 5, 6, 7, 8, 9, 13]
+console.log(bubbleSort([9, 2, 8, 3, 7, 6, 5, 1, 10, 4])); //  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(bubbleSort([29, 72, 98, 13, 87, 66, 52, 51, 36])); //  [13, 29, 36, 51, 52, 66, 72, 87, 98]
