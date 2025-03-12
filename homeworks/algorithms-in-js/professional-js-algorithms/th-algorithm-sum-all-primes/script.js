@@ -57,7 +57,7 @@ console.log(sumPrimes(977)); // should return 73156
 const isPrime = (num) => {
   if (num < 2) return false;
   for (let i = 2; i < num; i++) {
-    if (num % i === 0) return false; // Если делится без остатка, не простое
+    if (num % i === 0) return false; // not prime number
   }
   return true;
 };
