@@ -26,7 +26,7 @@ let initialArr=[[1,4,3,2],[2,4,3,5],[3,1,7,0],[4,8,2,9]]; // result should be [4
 // console.log(arrOfMaxs(initialArr)); [4,5,7,9]
 
 // Solution with the nested for loops
-const findMax=(arr)=>{
+const findMaxs=(arr)=>{
   let arrOfMaxs=[];
   for (let i=0; i<arr.length; i++){
     arrOfMaxs.push(arr[i][0]);
@@ -38,7 +38,7 @@ const findMax=(arr)=>{
   }
   return arrOfMaxs;
 }
-console.log(findMax(initialArr)); // [4, 5, 7, 9]
+console.log(findMaxs(initialArr)); // [4, 5, 7, 9]
 
 // T-diagram for arr=[[1,4,3,2],[2,4,3,5],[3,1,7,0],[4,8,2,9]]
 //     i     |    j     |     arrOfMaxs
