@@ -1,5 +1,7 @@
-// Given an array X, for example [1,-2,4,1], remove the negative numbers, so that the output becomes: [1,4,1].
-// Solve this recursively. For this algorithm, write the pseudocode, before your JS code.
+// Given an array X, for example [1,-2,4,1], remove the negative numbers, so that 
+// the output becomes: [1,4,1].
+// Solve this recursively. For this algorithm, write the pseudocode, 
+// before your JS code.
 
 // Define a function that takes arr as a parameter
 // Define a variable that holds a new empty array
