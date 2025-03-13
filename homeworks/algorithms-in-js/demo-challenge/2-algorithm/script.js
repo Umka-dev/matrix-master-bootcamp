@@ -28,7 +28,6 @@ let initialArr = [1, -2, 4, 1, -3, 0, 9];
 
 //   return removeNegatives(arr, filteredArr, i);
 // };
-
 // console.log(removeNegatives(initialArr));
 
 // Simplified Recursion solution with getting function parameters without the initial states
@@ -48,20 +47,41 @@ let initialArr = [1, -2, 4, 1, -3, 0, 9];
 
 //   return removeNegatives(arr, filteredArr, i);
 // };
-
 // console.log(removeNegatives(initialArr));
 
 // Normal solution
+// Define a function that takes an array as a parameter
+// Define a variable with empty array
+// Define a variable with index is equal 0
+// While loop untill i less than array length
+// Condition to check if array element is positive number
+// True - push it to the new array
+// Increase index by 1
+// Return the sorted array
+// Call the function
+
+// const removeNegatives = (arr) => {
+//   let newArr = [];
+//   let i = 0;
+//   while (i < arr.length) {
+//     if (arr[i] >= 0) {
+//       newArr.push(arr[i]);
+//     }
+//     i++;
+//   }
+//   return newArr;
+// };
+// console.log(removeNegatives(initialArr));
+
+// The same solution with a for loop
 const removeNegatives = (arr) => {
-  let newArr = [];
-  let i = 0;
-  while (i < arr.length) {
+  let resArr = [];
+  for (let i=0;i<arr.length;i++){
     if (arr[i] >= 0) {
-      newArr.push(arr[i]);
+      resArr.push(arr[i]);
     }
-    i++;
   }
-  return newArr;
+  return resArr;
 };
 
-console.log(removeNegatives(initialArr));
+console.log(removeNegatives(initialArr)); // [1, 4, 1, 0, 9]
