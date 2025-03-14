@@ -22,7 +22,7 @@
 // Calculate next element of sequence arr[i]=arr[i-2]+arr[i-1]
 // Return arr[n-1]
 
-const fibonacciSequence = (arr, n) => {
+const nthFibNumber = (arr, n) => {
   // console.log(arr, n);
   for (let i = 2; i <= n; i++) {
     arr[i] = arr[i - 2] + arr[i - 1];
@@ -31,13 +31,13 @@ const fibonacciSequence = (arr, n) => {
   return arr[n - 1];
 };
 
-console.log(`4th element = `, fibonacciSequence([1, 1], 4)); // 3
-console.log(`7th element = `, fibonacciSequence([1, 1], 7)); // 13
-console.log(`43th element = `, fibonacciSequence([1, 1], 43)); // 433494437
-console.log(`101th element = `, fibonacciSequence([1, 1], 101)); // 573147844013817200000
-console.log(`227th element = `, fibonacciSequence([1, 1], 227)); // 1.2322798146364122e+47
-console.log(`491th element = `, fibonacciSequence([1, 1], 491)); // 1.8341986124518392e+102
-console.log(`881th element = `, fibonacciSequence([1, 1], 881)); // 5.869837224475641e+183
+console.log(`4th element = `, nthFibNumber([1, 1], 4)); // 3
+console.log(`7th element = `, nthFibNumber([1, 1], 7)); // 13
+console.log(`43th element = `, nthFibNumber([1, 1], 43)); // 433494437
+console.log(`101th element = `, nthFibNumber([1, 1], 101)); // 573147844013817200000
+console.log(`227th element = `, nthFibNumber([1, 1], 227)); // 1.2322798146364122e+47
+console.log(`491th element = `, nthFibNumber([1, 1], 491)); // 1.8341986124518392e+102
+console.log(`881th element = `, nthFibNumber([1, 1], 881)); // 5.869837224475641e+183
 
 // Other better solution
 // Define a function that takes a number as the nth
