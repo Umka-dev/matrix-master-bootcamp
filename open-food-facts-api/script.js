@@ -8,58 +8,93 @@
 // it’s easier to handle the data once you’ve received it. You also get glory points for any practical requests via AJAX.
 
 const BASE_URL = 'https://world.openfoodfacts.net/api/v2/product/';
-let barcode = 3017624010701;
+// let barcode = 3017624010701;
 
-// Function to fetch data from the API
-const fetchData = (request) => {
-  barcode = request ? request : barcode;
-  $.ajax({
-    method: 'GET',
-    url: `${BASE_URL}${barcode}`,
-    // url: `${BASE_URL}${barcode}?fields=${response.product.product_name},${response.product.nutriscore_data}`,
-    dataType: 'json',
-  })
-    .done((response) => {
-      displayInfo(response);
+// Get current year
+const currentYear = new Date().getFullYear();
+$('#currentYear').text(currentYear);
+
+// Hide result card
+$('#display').hide();
+
+$(document).ready(() => {
+  // Function to fetch data from the API
+  const fetchData = (request) => {
+    barcode = request || barcode;
+    $.ajax({
+      method: 'GET',
+      url: `${BASE_URL}${barcode}`,
+      dataType: 'json',
     })
-    .fail((err) => console.log(err));
-};
+      .done((response) => {
+        displayInfo(response);
+      })
+      .fail((err) => console.log('API request failed:', err));
+  };
 
-// Function to display result of searching request
-const displayInfo = (response) => {
-  console.log(response.product);
-  if (!response.product || response.product.length === 0) {
-    console.log('No products found matching your requests');
-    return;
-  }
+  // Function to display result of searching request
+  const displayInfo = (response) => {
+    console.log(response.product);
+    if (!response.product || response.product.length === 0) {
+      console.log('No products found matching your requests');
+      return;
+    } else {
+      $('#display').show();
+    }
 
-  // Clear display before add new info
-  $('.display').empty();
+    // Destructuring response.product
+    const {
+      product_name,
+      image_front_small_url,
+      code,
+      brands,
+      product_quantity,
+      product_quantity_unit,
+      nutriscore_grade,
+      labels,
+      ingredients_text_en,
+      categories,
+      stores,
+    } = response.product;
 
-  let imgUrl = response.product.image_front_small_url;
-  $('.display').append(
-    `<h3 class="mb-3">${response.product.product_name}</h3>
-      <img src='${imgUrl}' alt="image-${response.product.product_name_en}" class="m-3">
-      <h6 class="mb-3">Barcode: ${response.product.code}</h6>
-      <h6 class="mb-3">Brand: ${response.product.brands}</h6>
-      <h6 class="mb-3">Product quantity: ${response.product.product_quantity} ${response.product.product_quantity_unit}</h6>
-      <h6 class="mb-3">Nutriscore grade: ${response.product.nutriscore_grade}</h6>
-      <h6 class="mb-3">Labels: ${response.product.labels}</h6>
-      <h6 class="mb-3">Ingredients: ${response.product.ingredients_text_en}</h6>
-      <h6 class="mb-3">Categories: ${response.product.categories}</h6>
-      <h6 class="mb-3">Stores: ${response.product.stores}</h6>
-      `
-  );
-};
+    $('#productName').text(
+      product_name
+        ? product_name.charAt(0).toUpperCase() +
+            product_name.slice(1).toLowerCase()
+        : 'Unknown'
+    );
+    $('#productImage')
+      .attr('src', image_front_small_url || '#')
+      .attr('alt', `${product_name}` || 'product');
+    $('#barcode').text(code || 'N/A');
+    $('#brands').text(brands || 'N/A');
+    $('#productQuantity').text(
+      product_quantity && product_quantity_unit
+        ? `${product_quantity} ${product_quantity_unit}`
+        : 'N/A'
+    );
+    $('#nutriscoreGrade').text(nutriscore_grade || 'N/A');
+    $('#labels').text(labels || 'N/A');
+    $('#ingredients').text(ingredients_text_en || 'N/A');
+    $('#categories').text(categories || 'N/A');
+    $('#stores').text(stores || 'N/A');
+  };
 
-// Get user request from the input
-$('#searchBtn').click((e) => {
-  e.preventDefault();
-  let userRequest = $('#search').val().trim();
+  // Event - Search button is clicked then get user request from the input
+  $('#searchBtn').click((e) => {
+    e.preventDefault();
+    let userRequest = $('#search').val().trim();
 
-  if (userRequest) {
-    fetchData(userRequest);
-  }
+    if (userRequest) {
+      fetchData(userRequest);
+    }
+  });
+
+  // Event - Refresh button is clicked then refresh the page
+  $('#refreshBtn').click(() => {
+    $('#search').val('');
+    $('#display').empty();
+  });
+
+  fetchData();
 });
-
-fetchData();
