@@ -64,7 +64,10 @@ $(document).ready(() => {
         : 'Unknown'
     );
     $('#productImage')
-      .attr('src', image_front_small_url || '#')
+      .attr(
+        'src',
+        image_front_small_url || './images/image-coming-soon-placeholder.png'
+      )
       .attr('alt', `${product_name}` || 'product');
     $('#barcode').text(code || 'N/A');
     $('#brands').text(brands || 'N/A');
@@ -73,7 +76,9 @@ $(document).ready(() => {
         ? `${product_quantity} ${product_quantity_unit}`
         : 'N/A'
     );
-    $('#nutriscoreGrade').text(nutriscore_grade || 'N/A');
+    $('#nutriscoreGrade').text(
+      nutriscore_grade.charAt(0).toUpperCase() || 'N/A'
+    );
     $('#labels').text(labels || 'N/A');
     $('#ingredients').text(ingredients_text_en || 'N/A');
     $('#categories').text(categories || 'N/A');
