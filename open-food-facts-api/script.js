@@ -7,20 +7,27 @@
 // you need to communicate with an API through either GET or POST request) Note here: attempt to choose an API with JSON responses,
 // it’s easier to handle the data once you’ve received it. You also get glory points for any practical requests via AJAX.
 
+// API URL
 const BASE_URL = 'https://world.openfoodfacts.net/api/v2/product/';
-// let barcode = 3017624010701;
-
-// Get current year
-const currentYear = new Date().getFullYear();
-$('#currentYear').text(currentYear);
-
-// Hide result card
-$('#display').hide();
 
 $(document).ready(() => {
+  // Hide result card
+  $('#display').hide();
+
+  // Function to clear data before new fetching
+  const clearDisplay = () => {
+    $(
+      '#productName, #barcode, #brands, #productQuantity, #nutriscoreGrade, #labels, #ingredients, #categories, #stores'
+    ).text('');
+    $('#productImage')
+      .attr('src', './images/image-coming-soon-placeholder.png')
+      .attr('alt', 'No image available');
+  };
+
   // Function to fetch data from the API
   const fetchData = (request) => {
-    barcode = request || barcode;
+    barcode = request || 3017624010701;
+    clearDisplay();
     $.ajax({
       method: 'GET',
       url: `${BASE_URL}${barcode}`,
@@ -57,18 +64,23 @@ $(document).ready(() => {
       stores,
     } = response.product;
 
+    // Update displayed data
     $('#productName').text(
       product_name
         ? product_name.charAt(0).toUpperCase() +
             product_name.slice(1).toLowerCase()
         : 'Unknown'
     );
+
     $('#productImage')
       .attr(
         'src',
         image_front_small_url || './images/image-coming-soon-placeholder.png'
       )
-      .attr('alt', `${product_name}` || 'product');
+      .attr('alt', product_name || 'No image available')
+      .on('error', function () {
+        $(this).attr('src', './images/image-coming-soon-placeholder.png');
+      });
     $('#barcode').text(code || 'N/A');
     $('#brands').text(brands || 'N/A');
     $('#productQuantity').text(
@@ -77,8 +89,9 @@ $(document).ready(() => {
         : 'N/A'
     );
     $('#nutriscoreGrade').text(
-      nutriscore_grade.charAt(0).toUpperCase() || 'N/A'
+      nutriscore_grade ? nutriscore_grade.charAt(0).toUpperCase() : 'N/A'
     );
+
     $('#labels').text(labels || 'N/A');
     $('#ingredients').text(ingredients_text_en || 'N/A');
     $('#categories').text(categories || 'N/A');
@@ -86,6 +99,7 @@ $(document).ready(() => {
   };
 
   // Event - Search button is clicked then get user request from the input
+
   $('#searchBtn').click((e) => {
     e.preventDefault();
     let userRequest = $('#search').val().trim();
@@ -95,11 +109,20 @@ $(document).ready(() => {
     }
   });
 
+  $('#search').keypress((e) => {
+    if (e.which === 13) {
+      e.preventDefault();
+      $('#searchBtn').click();
+    }
+  });
+
   // Event - Refresh button is clicked then refresh the page
   $('#refreshBtn').click(() => {
     $('#search').val('');
-    $('#display').empty();
+    $('#display').hide();
   });
 
-  fetchData();
+  // Get current year
+  const currentYear = new Date().getFullYear();
+  $('#currentYear').text(currentYear);
 });
