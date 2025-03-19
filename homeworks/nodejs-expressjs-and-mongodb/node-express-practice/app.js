@@ -13,12 +13,27 @@ const port = 3000;
 app.listen(port);
 
 app.get('/', (req, res) => {
-  //   res.send('<p>home page</p>');
-  res.render('index', { title: 'Home' });
+  const blogs = [
+    {
+      title: 'Why do we use it?',
+      snippet:
+        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+    },
+    {
+      title: 'What is Lorem Ipsum?',
+      snippet:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    },
+    {
+      title: 'Where does it come from?',
+      snippet:
+        'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.',
+    },
+  ];
+  res.render('index', { title: 'Home', blogs });
 });
 
 app.get('/about', (req, res) => {
-  //   res.send('<p>about page</p>');
   res.render('about', { title: 'About' });
 });
 
