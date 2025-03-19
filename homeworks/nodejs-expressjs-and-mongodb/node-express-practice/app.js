@@ -1,16 +1,17 @@
 const express = require('express');
-const { title } = require('process');
 
 // express app
 const app = express();
 
 // register view engine
 app.set('view engine', 'ejs');
-// app.set('views', 'my-views'); // in order to use other configuration with the different folder name for 'views'
 
 // listen for request
 const port = 3000;
 app.listen(port);
+
+// middleware & static files
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   const blogs = [
