@@ -31,6 +31,7 @@ app.set('view engine', 'ejs');
 
 // middleware & static files
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true })); // the middleware to use POST request, it takes all the URL encoded data and passes it to the request object
 
 // routes
 app.get('/', (req, res) => {
@@ -48,6 +49,16 @@ app.get('/blogs', (req, res) => {
     .sort({ createdAt: -1 })
     .then((result) => {
       res.render('index', { title: 'All Blogs', blogs: result });
+    })
+    .catch((err) => console.log(err));
+});
+
+app.post('/blogs', (req, res) => {
+  const blog = new Blog(req.body); // req.body={title: 'inputed_text', snippet: 'inputed_text', body: 'inputed_text'}
+  blog
+    .save() // saving to the DB new created by user blog object
+    .then((result) => {
+      res.redirect('/blogs');
     })
     .catch((err) => console.log(err));
 });
