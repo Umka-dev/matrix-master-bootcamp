@@ -32,61 +32,24 @@ app.set('view engine', 'ejs');
 // middleware & static files
 app.use(express.static('public'));
 
-// mongoose and mongo sandbox routes
-app.get('/add-blog', (req, res) => {
-  const blog = new Blog({
-    title: 'new blog 2',
-    snippet: 'about my new blog',
-    body: 'more about my new blog',
-  });
-  blog
-    .save()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => console.log(err));
-});
-
-app.get('/all-blogs', (req, res) => {
-  Blog.find()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => console.log(err));
-});
-
-app.get('/single-blog', (req, res) => {
-  Blog.findById('67dc587ae2515655bec01664')
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => console.log(err));
-});
-
 // routes
 app.get('/', (req, res) => {
-  const blogs = [
-    {
-      title: 'Why do we use it?',
-      snippet:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-    },
-    {
-      title: 'What is Lorem Ipsum?',
-      snippet:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      title: 'Where does it come from?',
-      snippet:
-        'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.',
-    },
-  ];
-  res.render('index', { title: 'Home', blogs });
+  // res.render('index', { title: 'Home', blogs });
+  res.redirect('/blogs');
 });
 
 app.get('/about', (req, res) => {
   res.render('about', { title: 'About' });
+});
+
+// blog routes
+app.get('/blogs', (req, res) => {
+  Blog.find()
+    .sort({ createdAt: -1 })
+    .then((result) => {
+      res.render('index', { title: 'All Blogs', blogs: result });
+    })
+    .catch((err) => console.log(err));
 });
 
 app.get('/blogs/create', (req, res) => {
