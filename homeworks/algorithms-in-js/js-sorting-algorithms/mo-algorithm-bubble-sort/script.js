@@ -23,8 +23,8 @@
 // Solution
 // Define a function that takes an array as a parameter
 // Define a variable to hold the array length
-// For loop to iterate through the array from 0 to the length
-// For loop to iterate through the array from 0 to the length
+// For loop to iterate through the array from 0 to the length-1
+// For loop to iterate through the array from 0 to the length-i
 // Condition to compare the current element with the next one
 // Return the sorted array
 // Call the function
