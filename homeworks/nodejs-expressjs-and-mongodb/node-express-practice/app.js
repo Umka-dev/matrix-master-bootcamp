@@ -1,18 +1,69 @@
+require('dotenv').config(); // to use .env file
 const express = require('express');
+const mongoose = require('mongoose');
+const Blog = require('./models/blogModel');
 
 // express app
 const app = express();
 
+// connect to MongoDB
+const DB_URI = process.env.MONGO_URI; // connect DB URI through the .env
+if (!DB_URI) {
+  console.error('❌ MongoDB URI is missing! Check your .env file.');
+  process.exit(1);
+}
+mongoose
+  .connect(DB_URI)
+  .then(() => {
+    console.log('✅ DB is connected');
+    // listen for request
+    const port = 3000;
+    app.listen(port, () =>
+      console.log(`Server is running on http://localhost:${port}`)
+    );
+  })
+  .catch((err) => {
+    console.log('❌ MongoDB connection error: ', err);
+  });
+
 // register view engine
 app.set('view engine', 'ejs');
-
-// listen for request
-const port = 3000;
-app.listen(port);
 
 // middleware & static files
 app.use(express.static('public'));
 
+// mongoose and mongo sandbox routes
+app.get('/add-blog', (req, res) => {
+  const blog = new Blog({
+    title: 'new blog 2',
+    snippet: 'about my new blog',
+    body: 'more about my new blog',
+  });
+  blog
+    .save()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => console.log(err));
+});
+
+app.get('/all-blogs', (req, res) => {
+  Blog.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => console.log(err));
+});
+
+app.get('/single-blog', (req, res) => {
+  Blog.findById('67dc587ae2515655bec01664')
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => console.log(err));
+});
+
+// routes
 app.get('/', (req, res) => {
   const blogs = [
     {
