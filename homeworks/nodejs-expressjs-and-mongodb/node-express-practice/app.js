@@ -2,6 +2,7 @@ require('dotenv').config(); // to use .env file
 const express = require('express');
 const mongoose = require('mongoose');
 const Blog = require('./models/blogModel');
+const { render } = require('ejs');
 
 // express app
 const app = express();
@@ -59,6 +60,15 @@ app.post('/blogs', (req, res) => {
     .save() // saving to the DB new created by user blog object
     .then((result) => {
       res.redirect('/blogs');
+    })
+    .catch((err) => console.log(err));
+});
+
+app.get('/blogs/:id', (req, res) => {
+  const id = req.params.id;
+  Blog.findById(id)
+    .then((result) => {
+      res.render('details', { blog: result, title: 'Blog Details' });
     })
     .catch((err) => console.log(err));
 });
