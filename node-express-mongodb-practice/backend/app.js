@@ -8,13 +8,21 @@ app.use(express.json());
 
 // routes
 // home page
+
 app.get('/', (req, res) => {
-  res.send('I am in the home page');
+  console.log(req.params);
+  res.send(`<h1>Home page</h1>`);
+});
+
+// Get and display the request params on the page as a variable
+app.get('/:parameter', (req, res) => {
+  console.log(req.params);
+  res.send(`<h1>Hello ${req.params.parameter}</h1>`);
 });
 
 // contact page
 let users = [];
-app.get('/contact', (req, res) => {
+app.get('/users', (req, res) => {
   res.send(users);
 });
 
