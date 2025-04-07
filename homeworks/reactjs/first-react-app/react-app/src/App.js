@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { List } from './components/List';
 import { Button } from './components/Button';
+import './App.css';
 
 export default class App extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='App'>
         <h1>Hello, {this.state.userName}</h1>
         <h3>Email: {this.state.email}</h3>
         {/* send the color array to the List component */}
