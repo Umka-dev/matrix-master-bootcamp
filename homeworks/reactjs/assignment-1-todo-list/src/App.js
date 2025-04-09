@@ -22,7 +22,7 @@ export default class App extends Component {
     });
   };
 
-  handleClick = (e) => {
+  handleClickAdd = (e) => {
     // Prevent the browser from reloading the page
     e.preventDefault();
 
@@ -60,7 +60,7 @@ export default class App extends Component {
           title={title}
           description={description}
           handleChange={this.handleChange}
-          handleClick={this.handleClick}
+          handleClickAdd={this.handleClickAdd}
         />
         {isSubmitted ? (
           <ToDoList taskList={taskList} onClick={this.handleClickDone} />

@@ -1,6 +1,11 @@
 import React from 'react';
 
-export const ToDoForm = ({ title, description, handleChange, handleClick }) => {
+export const ToDoForm = ({
+  title,
+  description,
+  handleChange,
+  handleClickAdd,
+}) => {
   console.log('Title: ', title, 'Description: ', description);
   return (
     <>
@@ -27,7 +32,7 @@ export const ToDoForm = ({ title, description, handleChange, handleClick }) => {
           <button
             type='submit'
             className='btn btn-primary'
-            onClick={handleClick}
+            onClick={handleClickAdd}
           >
             Add
           </button>
