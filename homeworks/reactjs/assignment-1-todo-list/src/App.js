@@ -8,9 +8,7 @@ export default class App extends Component {
     this.state = {
       title: '',
       description: '',
-      isSubmitted: false,
       taskList: [],
-      id: 0,
     };
   }
 
@@ -18,7 +16,7 @@ export default class App extends Component {
     const { name, value } = e.target;
 
     this.setState({
-      [name]: value,
+      [name]: value, // here [name] - allows to create the dynamic object keys
     });
   };
 
@@ -26,7 +24,7 @@ export default class App extends Component {
     // Prevent the browser from reloading the page
     e.preventDefault();
 
-    const { title, description, taskList, id } = this.state;
+    const { title, description, taskList } = this.state;
 
     if (!title.trim()) {
       alert('Please enter at least the task name');
@@ -34,9 +32,7 @@ export default class App extends Component {
     }
 
     this.setState({
-      id: Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000, // Generate 4 Digit Random Number
-      isSubmitted: true,
-      taskList: [...taskList, { title, description, id }], // add new task data to task list
+      taskList: [...taskList, { title, description, id: Date.now() }], // add new task data to task list // unic id = timestamp in millisecondss
       title: '', // reset input
       description: '', // reset textarea
     });
@@ -52,7 +48,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { title, description, isSubmitted, taskList } = this.state;
+    const { title, description, taskList } = this.state;
 
     return (
       <div className='container d-grid col-12 text-center d-flex flex-column justify-content-start min-vh-100 p-3'>
@@ -62,7 +58,7 @@ export default class App extends Component {
           handleChange={this.handleChange}
           handleClickAdd={this.handleClickAdd}
         />
-        {isSubmitted ? (
+        {taskList.length ? (
           <ToDoList
             taskList={taskList}
             handleClickDone={this.handleClickDone}

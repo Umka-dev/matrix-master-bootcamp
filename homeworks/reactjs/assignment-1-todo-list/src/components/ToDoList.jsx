@@ -5,8 +5,8 @@ export const ToDoList = ({ taskList, handleClickDone }) => {
   return (
     <>
       <h2 className='mb-4'>My ToDo-list:</h2>
-      <div className='d-grid gap-3 col-8 mx-auto justify-content-center'>
-        <ul>
+      <div className='d-grid gap-3 col-4 mx-auto justify-content-start'>
+        <ul className='text-start'>
           {taskList.map((item) => {
             return (
               <li key={item.id}>
