@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ToDoForm } from './components/ToDoForm';
+import { ToDoList } from './components/ToDoList';
 
 export default class App extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ export default class App extends Component {
     return (
       <div className='container d-grid col-12 text-center d-flex flex-column justify-content-start min-vh-100 p-3'>
         <ToDoForm />
+        <ToDoList />
       </div>
     );
   }

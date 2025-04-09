@@ -4,7 +4,7 @@ export const ToDoForm = (props) => {
   return (
     <>
       <h1 className='mb-4'>New Task:</h1>
-      <form className='d-flex flex-column align-items-center'>
+      <form className='d-flex flex-column align-items-center mb-4'>
         <div class='d-grid gap-2 col-3 mx-auto justify-content-center'>
           <input
             type='text'
