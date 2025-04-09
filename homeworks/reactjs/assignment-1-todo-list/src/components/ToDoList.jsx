@@ -14,7 +14,7 @@ export const ToDoList = ({ taskList, handleClickDone }) => {
                   <strong>{item.title}:</strong> {item.description}
                   <button
                     className='btn btn-link mb-1'
-                    onClick={handleClickDone}
+                    onClick={() => handleClickDone(item.id)} // with callback send item ID to handleClickDone
                   >
                     Done
                   </button>

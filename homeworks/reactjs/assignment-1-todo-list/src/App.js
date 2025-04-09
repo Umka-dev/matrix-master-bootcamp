@@ -44,8 +44,8 @@ export default class App extends Component {
     console.log('Form submitted!');
   };
 
-  handleClickDone = (e) => {
-    const filteredList = this.state.taskList.filter((item) => item !== item.id);
+  handleClickDone = (id) => {
+    const filteredList = this.state.taskList.filter((item) => item.id !== id);
     this.setState({
       taskList: filteredList,
     });
@@ -63,7 +63,10 @@ export default class App extends Component {
           handleClickAdd={this.handleClickAdd}
         />
         {isSubmitted ? (
-          <ToDoList taskList={taskList} onClick={this.handleClickDone} />
+          <ToDoList
+            taskList={taskList}
+            handleClickDone={this.handleClickDone}
+          />
         ) : null}
       </div>
     );
