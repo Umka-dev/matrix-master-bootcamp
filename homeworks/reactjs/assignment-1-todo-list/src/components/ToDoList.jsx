@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ToDoList = (props) => {
+export const ToDoList = ({ title, description }) => {
   return (
     <>
       <h2 className='mb-4'>My ToDo-list:</h2>
@@ -8,15 +8,7 @@ export const ToDoList = (props) => {
         <ul>
           <li>
             <h5>
-              <strong>Task1:</strong> Lorem ipsum dolor sit amet consectetur
-              adipisicing elit.
-              <button className='btn btn-link mb-1'>Done</button>
-            </h5>
-          </li>
-          <li>
-            <h5>
-              <strong>Task2:</strong> Lorem ipsum dolor sit amet consectetur
-              adipisicing elit.
+              <strong>{title}:</strong> {description}
               <button className='btn btn-link mb-1'>Done</button>
             </h5>
           </li>
