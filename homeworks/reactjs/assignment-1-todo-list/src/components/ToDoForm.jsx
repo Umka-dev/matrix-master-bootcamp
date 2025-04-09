@@ -14,6 +14,7 @@ export const ToDoForm = ({ title, description, handleChange, handleClick }) => {
             onChange={handleChange}
             placeholder='Your task'
             style={{ width: 300 }}
+            required
           />
           <textarea
             type='text'
