@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 export default class AddTodo extends Component {
   state = {
@@ -36,3 +37,8 @@ export default class AddTodo extends Component {
     );
   }
 }
+
+// propTypes
+AddTodo.propTypes = {
+  addTodo: PropTypes.func.isRequired,
+};
