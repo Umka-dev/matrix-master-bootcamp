@@ -1,21 +1,7 @@
 import React, { useState } from 'react';
 
-import DisplayPosts from './DisplayPosts';
-import FetchPosts from './FetchPosts';
-
-const AddPosts = () => {
+const AddForm = ({ onUpdatedPostList }) => {
   const [userInput, setUserInput] = useState({ userName: '', message: '' });
-  const [postList, setPostList] = useState([]);
-  const [fetched, setFetched] = useState(false);
-
-  // Handler for data received from FetchPosts
-  const handleDataFetched = (fetchedPosts) => {
-    // console.log('fetchedPosts: ', fetchedPosts);
-    if (!fetched) {
-      setPostList((prev) => [...fetchedPosts, ...prev]);
-      setFetched(true);
-    }
-  };
 
   // Handle form input change
   const handleChange = (e) => {
@@ -33,13 +19,12 @@ const AddPosts = () => {
       ...userInput,
       date: new Date().toLocaleDateString(),
     };
-    setPostList((prev) => [newPost, ...prev]); // Add user inputted data to the fetched post list
+    onUpdatedPostList((prev) => [newPost, ...prev]); // Add user inputted data to the fetched post list
     setUserInput({ userName: '', message: '' }); // Clear the form inputs
   };
 
   return (
-    <div className='pageLayout'>
-      <FetchPosts onFetched={handleDataFetched} />
+    <div>
       <form className='addForm' onSubmit={handleSubmit}>
         <label htmlFor='userName'>Name</label>
         <input
@@ -61,9 +46,7 @@ const AddPosts = () => {
         ></textarea>
         <button type='submit'>Post a message</button>
       </form>
-      <DisplayPosts postList={postList} />
     </div>
   );
 };
-
-export default AddPosts;
+export default AddForm;
