@@ -1,42 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
 import DisplayPosts from './DisplayPosts';
+import FetchPosts from './FetchPosts';
 
 const AddPostForm = () => {
   const [userInput, setUserInput] = useState({ userName: '', message: '' });
   const [postList, setPostList] = useState([]);
-  const [users, setUsers] = useState([]);
+  const [fetched, setFetched] = useState(false);
 
-  // Fetch users (authors) from API
-  useEffect(() => {
-    axios
-      .get('https://jsonplaceholder.typicode.com/users')
-      .then((res) => setUsers(res.data))
-      .catch((err) => console.error('Error fetching users:', err));
-  }, []);
-
-  // Fetch posts from API
-  useEffect(() => {
-    if (users.length === 0) return; // Ensure users are loaded first
-
-    axios
-      .get('https://jsonplaceholder.typicode.com/posts')
-      .then((res) => {
-        // Take the first post for each user
-        const postsFromUsers = users.map((user) => {
-          const post = res.data.find((post) => post.userId === user.id);
-          return {
-            userName: user.name,
-            message: post ? post.body : 'No post available',
-            date: new Date().toLocaleDateString(),
-          };
-        });
-
-        setPostList(postsFromUsers); // Update post list with posts from each user
-      })
-      .catch((err) => console.error('Error fetching posts:', err));
-  }, [users]); // wait when users are loaded
+  // Handler for data received from FetchPosts
+  const handleDataFetched = (fetchedPosts) => {
+    console.log('fetchedPosts: ', fetchedPosts);
+    if (!fetched) {
+      setPostList((prev) => [...fetchedPosts, ...prev]);
+      setFetched(true);
+    }
+  };
 
   // Handle form input change
   const handleChange = (e) => {
@@ -60,6 +39,7 @@ const AddPostForm = () => {
 
   return (
     <div className='pageLayout'>
+      <FetchPosts onFetched={handleDataFetched} />
       <form className='addForm' onSubmit={handleSubmit}>
         <label htmlFor='userName'>Name</label>
         <input
