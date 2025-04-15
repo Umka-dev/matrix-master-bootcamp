@@ -1,32 +1,63 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+import DisplayPosts from './DisplayPosts';
 
 const AddPostForm = () => {
   const [userInput, setUserInput] = useState({ userName: '', message: '' });
   const [postList, setPostList] = useState([]);
+  const [users, setUsers] = useState([]);
 
+  // Fetch users (authors) from API
+  useEffect(() => {
+    axios
+      .get('https://jsonplaceholder.typicode.com/users')
+      .then((res) => setUsers(res.data))
+      .catch((err) => console.error('Error fetching users:', err));
+  }, []);
+
+  // Fetch posts from API
+  useEffect(() => {
+    if (users.length === 0) return; // Ensure users are loaded first
+
+    axios
+      .get('https://jsonplaceholder.typicode.com/posts')
+      .then((res) => {
+        // Take the first post for each user
+        const postsFromUsers = users.map((user) => {
+          const post = res.data.find((post) => post.userId === user.id);
+          return {
+            userName: user.name,
+            message: post ? post.body : 'No post available',
+            date: new Date().toLocaleDateString(),
+          };
+        });
+
+        setPostList(postsFromUsers); // Update post list with posts from each user
+      })
+      .catch((err) => console.error('Error fetching posts:', err));
+  }, [users]); // wait when users are loaded
+
+  // Handle form input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserInput((prev) => ({
       ...prev,
       [name]: value,
     }));
-    console.log(userInput);
   };
 
+  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPost = {
       ...userInput,
-      date: new Date().toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }), // current data in "Month D, Year" format
+      date: new Date().toLocaleDateString(),
     };
-    setPostList((prev) => [newPost, ...prev]); // add user inputed data to a post list
-    setUserInput({ userName: '', message: '' }); // clear the form
+    setPostList((prev) => [newPost, ...prev]); // Add user inputted data to the fetched post list
+    setUserInput({ userName: '', message: '' }); // Clear the form inputs
   };
-  console.log(postList);
+
   return (
     <div className='pageLayout'>
       <form className='addForm' onSubmit={handleSubmit}>
@@ -50,18 +81,7 @@ const AddPostForm = () => {
         ></textarea>
         <button type='submit'>Post a message</button>
       </form>
-      <div>
-        {postList?.map((item, idx) => {
-          return (
-            <div key={idx} className='postList'>
-              <h3>
-                {item.userName} <span> — {item.date}</span>
-              </h3>
-              <p>{item.message}</p>
-            </div>
-          );
-        })}
-      </div>
+      <DisplayPosts postList={postList} />
     </div>
   );
 };
