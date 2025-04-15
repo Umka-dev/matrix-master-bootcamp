@@ -1,16 +1,10 @@
 import React from 'react';
+import '../../App.css';
 
 export default function Header() {
   return (
-    <header style={headerStyle}>
+    <header className='headerStyle'>
       <h1>Timeline</h1>
     </header>
   );
 }
-
-const headerStyle = {
-  background: '#333',
-  color: '#fff',
-  textAlign: 'center',
-  padding: 20,
-};
