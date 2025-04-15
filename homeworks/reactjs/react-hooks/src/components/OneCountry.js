@@ -14,7 +14,7 @@ export default function OneCountry() {
         setCountryInfo(result.data[0]);
       })
       .catch((err) => console.log(err));
-  });
+  }, [params.countryName]);
 
   return (
     <div>
