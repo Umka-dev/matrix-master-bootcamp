@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import DisplayPosts from './DisplayPosts';
 import FetchPosts from './FetchPosts';
 
-const AddPostForm = () => {
+const AddPosts = () => {
   const [userInput, setUserInput] = useState({ userName: '', message: '' });
   const [postList, setPostList] = useState([]);
   const [fetched, setFetched] = useState(false);
 
   // Handler for data received from FetchPosts
   const handleDataFetched = (fetchedPosts) => {
-    console.log('fetchedPosts: ', fetchedPosts);
+    // console.log('fetchedPosts: ', fetchedPosts);
     if (!fetched) {
       setPostList((prev) => [...fetchedPosts, ...prev]);
       setFetched(true);
@@ -66,4 +66,4 @@ const AddPostForm = () => {
   );
 };
 
-export default AddPostForm;
+export default AddPosts;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/layout/Header';
-import AddPostForm from './components/AddPostForm';
+import AddPosts from './components/AddPosts';
 import Footer from './components/layout/Footer';
 
 import './App.css';
@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div className='App'>
       <Header />
-      <AddPostForm />
+      <AddPosts />
       <Footer />
     </div>
   );
