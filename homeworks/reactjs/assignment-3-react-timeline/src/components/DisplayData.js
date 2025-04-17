@@ -1,6 +1,7 @@
 import React from 'react';
+import AddCommentForm from './AddCommentForm';
 
-const DisplayPosts = ({ postList }) => {
+const DisplayData = ({ postList, onAddComment }) => {
   // console.log('Post List to DISPLAY:', postList);
   return (
     <>
@@ -13,7 +14,8 @@ const DisplayPosts = ({ postList }) => {
               </h3>
               <p>{post.message}</p>
             </div>
-            <h4 className='commentsHeader'>Comments:</h4>
+            <h4 className='commentsHeader'>Comments</h4>
+            <AddCommentForm onAddComment={onAddComment} postId={postIdx} />
             {post.comments?.map((comment, commentIdx) => {
               return (
                 <div key={commentIdx} className='comments'>
@@ -30,4 +32,4 @@ const DisplayPosts = ({ postList }) => {
     </>
   );
 };
-export default DisplayPosts;
+export default DisplayData;

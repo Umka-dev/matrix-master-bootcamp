@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AddForm = ({ onUpdatedPostList }) => {
+const AddPostForm = ({ onUpdatedPostList }) => {
   const [userInput, setUserInput] = useState({ userName: '', message: '' });
 
   // Handle form input change
@@ -49,4 +49,4 @@ const AddForm = ({ onUpdatedPostList }) => {
     </div>
   );
 };
-export default AddForm;
+export default AddPostForm;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const FetchPosts = ({ onFetched }) => {
+const FetchData = ({ onFetched }) => {
   const [users, setUsers] = useState([]);
 
   // Fetch users (authors) from API
@@ -64,4 +64,4 @@ const FetchPosts = ({ onFetched }) => {
   }, [users, onFetched]);
 };
 
-export default FetchPosts;
+export default FetchData;
