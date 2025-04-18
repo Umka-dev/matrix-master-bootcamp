@@ -28,7 +28,7 @@ const FetchData = ({ onFetched }) => {
             userName: postAuthor
               ? `${postAuthor.first_name} ${postAuthor.last_name}`
               : 'Unknown User',
-            date: new Date(post.createdAt).toLocaleDateString(),
+            date: new Date(post.createdAt).toLocaleString(),
             comments: post.comments, // array of the comment ids
           };
         });
@@ -43,7 +43,7 @@ const FetchData = ({ onFetched }) => {
               commentAuthor: commentAuthor
                 ? `${commentAuthor.first_name} ${commentAuthor.last_name}`
                 : 'Unknown User',
-              date: new Date(comment.createdAt).toLocaleDateString(),
+              date: new Date(comment.createdAt).toLocaleString(),
             };
           });
 

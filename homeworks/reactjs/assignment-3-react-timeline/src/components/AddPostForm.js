@@ -29,7 +29,7 @@ const AddPostForm = ({ onUpdatedPostList }) => {
         const newPost = {
           userName: 'Unregistered User',
           message: res.data.message,
-          date: new Date(res.data.createdAt).toLocaleDateString(),
+          date: new Date(res.data.createdAt).toLocaleString(),
         };
         onUpdatedPostList((prev) => [newPost, ...prev]); // Add user inputted data to the fetched post list
         setUserInput({ message: '' });
