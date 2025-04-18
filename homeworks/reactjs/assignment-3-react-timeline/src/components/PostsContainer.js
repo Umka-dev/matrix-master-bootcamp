@@ -17,16 +17,17 @@ const PostsContainer = () => {
     }
   };
 
-  const handleAddComment = (postIdx, newComment) => {
-    const updatedPosts = [...posts]; // create a copy of posts array
-    updatedPosts[postIdx].comments = [
-      ...(updatedPosts[postIdx].comments || []),
-      {
-        ...newComment,
-        commentAuthor: 'Unknown User',
-        content: newComment.content.comment,
-      },
-    ];
+  const handleAddComment = (postId, newComment) => {
+    const updatedPosts = posts.map((post) => {
+      if (post._id === postId) {
+        return {
+          ...post,
+          comments: [...(post.comments || []), newComment],
+        };
+      }
+      return post;
+    });
+
     setPosts(updatedPosts);
   };
 

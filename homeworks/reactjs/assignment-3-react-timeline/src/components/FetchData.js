@@ -24,11 +24,12 @@ const FetchData = ({ onFetched }) => {
           const postAuthor = users.find((user) => user._id === post.user);
 
           return {
+            _id: post._id,
             message: post.message,
             userName: postAuthor
               ? `${postAuthor.first_name} ${postAuthor.last_name}`
               : 'Unknown User',
-            date: new Date(post.createdAt).toLocaleDateString(),
+            date: new Date(post.createdAt).toLocaleString(),
             comments: post.comments, // array of the comment ids
           };
         });
@@ -43,7 +44,7 @@ const FetchData = ({ onFetched }) => {
               commentAuthor: commentAuthor
                 ? `${commentAuthor.first_name} ${commentAuthor.last_name}`
                 : 'Unknown User',
-              date: new Date(comment.createdAt).toLocaleDateString(),
+              date: new Date(comment.createdAt).toLocaleString(),
             };
           });
 
