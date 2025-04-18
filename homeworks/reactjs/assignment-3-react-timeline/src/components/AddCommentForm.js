@@ -1,7 +1,10 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 const AddCommentForm = ({ postId, onAddComment }) => {
   const [input, setInput] = useState({ comment: '' });
+
+  const UNREG_USER_ID = '680228d4ea4c0d0dec163674';
 
   // Handle form input change
   const handleChange = (e) => {
@@ -15,13 +18,25 @@ const AddCommentForm = ({ postId, onAddComment }) => {
   // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newComment = {
-      content: input,
-      commentAuthor: 'You',
-      date: new Date().toLocaleDateString(),
+
+    const requestBody = {
+      user: UNREG_USER_ID,
+      post: postId,
+      comment: input.comment,
     };
-    onAddComment(postId, newComment); // Add user inputted comment to the fetched comment list
-    setInput({ comment: '' }); // Clear the form input
+
+    axios
+      .post(`http://localhost:3300/api/post/${postId}`, requestBody)
+      .then((res) => {
+        const newComment = {
+          commentAuthor: 'Unregistered User',
+          content: res.data.comment,
+          date: new Date(res.data.createdAt).toLocaleString(),
+        };
+        onAddComment(postId, newComment); // Add user inputted comment to the fetched comment list
+        setInput({ comment: '' }); // Clear the form input
+      })
+      .catch((err) => console.log('Error posting comment:', err));
   };
 
   return (
