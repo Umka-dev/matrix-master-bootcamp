@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useFetch from '../hooks/useFetch';
+
+import Searchbar from '../Searchbar';
 
 const HomePage = () => {
   const [albums] = useFetch('https://jsonplaceholder.typicode.com/albums');
+  const [filteredAlbums, setFilteredAlbums] = useState([]);
+
+  const handleUserSearch = (userInput) => {
+    const trimmedInput = userInput.trim();
+
+    if (trimmedInput) {
+      const filtered = albums.filter((album) =>
+        album.title.toLowerCase().includes(trimmedInput.toLowerCase())
+      );
+      setFilteredAlbums(filtered);
+    } else {
+      setFilteredAlbums([]);
+    }
+  };
 
   return (
-    <div>
-      <h2>Popular albums</h2>
+    <div className='display-slyles'>
+      <Searchbar onSearch={handleUserSearch} />
+      {filteredAlbums.length ? <h2>Search results</h2> : null}
       <ul>
-        {albums?.map((album) => (
+        {filteredAlbums?.map((album) => (
           <li key={album.id}>{album.title}</li>
         ))}
       </ul>

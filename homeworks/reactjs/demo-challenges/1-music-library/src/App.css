@@ -26,13 +26,12 @@ html,
 
 .main-style {
     flex: 1;
-    padding: 20px;
 }
 
 .header-style {
     text-align: center;
     padding: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
 
 .footer-style {
@@ -44,4 +43,51 @@ html,
 .footer-style a {
     color: #fdfcfe;
     margin-left: 5px;
+}
+
+.searchbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.searchbar input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    font-size: 16px;
+
+    border-radius: 20px;
+    font-size: 16px;
+    color: #000;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.searchbar input:focus {
+    border: 1px solid #4CAF50;
+}
+
+.searchbar button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    margin-left: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.searchbar button:hover {
+    background-color: #45a049;
+}
+
+.display-slyles h2 {
+    margin-bottom: 20px;
 }
