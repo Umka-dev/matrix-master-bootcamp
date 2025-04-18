@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: #29282d;
+}
+
+body,
+html,
+#root {
+    height: 100%;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 900px;
+    margin: auto;
+
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    font-size: 16px;
+    color: #fdfcfe;
+}
+
+.main-style {
+    flex: 1;
+    padding: 20px;
+}
+
+.header-style {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.footer-style {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.footer-style a {
+    color: #fdfcfe;
+    margin-left: 5px;
+}
