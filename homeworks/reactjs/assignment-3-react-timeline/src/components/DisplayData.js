@@ -15,8 +15,10 @@ const DisplayData = ({ postList, onAddComment }) => {
               <p>{post.message}</p>
             </div>
             <h4 className='commentsHeader'>Comments</h4>
-            <AddCommentForm onAddComment={onAddComment} postId={postIdx} />
+            <AddCommentForm onAddComment={onAddComment} postId={post._id} />
             {post.comments?.map((comment, commentIdx) => {
+              // console.log('Comment:', comment);
+
               return (
                 <div key={commentIdx} className='comments'>
                   <h4>

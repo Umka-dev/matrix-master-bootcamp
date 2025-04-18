@@ -24,6 +24,7 @@ const FetchData = ({ onFetched }) => {
           const postAuthor = users.find((user) => user._id === post.user);
 
           return {
+            _id: post._id,
             message: post.message,
             userName: postAuthor
               ? `${postAuthor.first_name} ${postAuthor.last_name}`

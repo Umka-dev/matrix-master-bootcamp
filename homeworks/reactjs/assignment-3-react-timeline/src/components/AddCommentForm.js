@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 
 const AddCommentForm = ({ postId, onAddComment }) => {
   const [input, setInput] = useState({ comment: '' });
-
   const UNREG_USER_ID = '680228d4ea4c0d0dec163674';
 
   // Handle form input change
@@ -30,8 +29,10 @@ const AddCommentForm = ({ postId, onAddComment }) => {
       .then((res) => {
         const newComment = {
           commentAuthor: 'Unregistered User',
-          content: res.data.comment,
-          date: new Date(res.data.createdAt).toLocaleString(),
+          content: input.comment,
+          date: res.data.createdAt
+            ? new Date(res.data.createdAt).toLocaleString()
+            : new Date().toLocaleString(),
         };
         onAddComment(postId, newComment); // Add user inputted comment to the fetched comment list
         setInput({ comment: '' }); // Clear the form input
