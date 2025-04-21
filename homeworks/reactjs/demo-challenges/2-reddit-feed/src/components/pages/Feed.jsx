@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddPostForm from '../AddPostForm';
 import DisplayPosts from '../DisplayPosts';
 
+const storedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+
 const Feed = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(storedPosts);
 
   const handleAddPost = (newPost) => {
     console.log('Post object: ', newPost);
@@ -37,6 +39,11 @@ const Feed = () => {
     }
   };
   console.log('Updated posts: ', posts);
+
+  useEffect(() => {
+    // Save to Local Storage
+    localStorage.setItem('posts', JSON.stringify(posts));
+  }, [posts]);
 
   return (
     <div>

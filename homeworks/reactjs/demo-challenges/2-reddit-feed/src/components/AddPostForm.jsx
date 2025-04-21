@@ -12,7 +12,7 @@ const AddPostForm = ({ onInputSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const trimmedInput = input.trim();
-    console.log('User trimmed input: ', trimmedInput);
+
     if (trimmedInput) {
       const newPost = {
         postId: Date.now(),
