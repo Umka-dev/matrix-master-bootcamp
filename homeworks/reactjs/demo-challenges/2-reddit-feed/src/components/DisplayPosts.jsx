@@ -1,8 +1,6 @@
 import React from 'react';
 
 const DisplayPosts = ({ posts, handleClick }) => {
-  //   console.log('Display posts : ', posts);
-
   return (
     <div>
       <h2>All posts</h2>

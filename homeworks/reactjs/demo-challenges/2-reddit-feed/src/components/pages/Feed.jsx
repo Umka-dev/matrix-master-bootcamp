@@ -8,37 +8,28 @@ const Feed = () => {
   const [posts, setPosts] = useState(storedPosts);
 
   const handleAddPost = (newPost) => {
-    console.log('Post object: ', newPost);
     setPosts((prev) => [...prev, newPost]);
   };
 
   // Handle click the upvote button
   const handleUpvote = (postId) => {
-    // console.log('Upvote button clicked!');
-    // console.log('Post id is: ', postId);
-
     // Find post by post ID from props
     const foundPost = posts.find((post) => post.postId === postId);
-    // console.log('Found post by id: ', foundPost);
 
     if (foundPost) {
       const updatedPost = { ...foundPost, votes: foundPost.votes + 1 };
-      // console.log('Updated post: ', updatedPost);
 
       const updatedPosts = posts.map((post) =>
         post.postId === postId ? updatedPost : post
       );
-      // console.log('Updated posts: ', updatedPosts);
 
       // Sort posts by upvoted rate
       const sortedPosts = updatedPosts
         .slice()
         .sort((a, b) => b.votes - a.votes);
-      //   console.log('sortedPosts: ', sortedPosts);
       setPosts(sortedPosts);
     }
   };
-  console.log('Updated posts: ', posts);
 
   useEffect(() => {
     // Save to Local Storage
