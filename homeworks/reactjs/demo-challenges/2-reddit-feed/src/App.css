@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html,
+#root {
+    height: 100%;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 900px;
+    margin: 20px auto;
+
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    font-size: 16px;
+    color: #2d2d2d;
+}
+
+h1,
+h2 {
+    margin-bottom: 20px;
+}
+
+
+.addPostForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+    max-width: 500px;
+    margin-bottom: 50px;
+}
+
+.addPostForm button,
+.post-statistics button {
+    max-width: min-content;
+    background-color: #3278ef;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.addPostForm textarea {
+    min-height: 50px;
+    padding: 5px;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    font-size: 16px;
+}
+
+.one-post {
+    padding: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.one-post p {
+    margin-bottom: 15px;
+}
+
+.post-statistics {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-statistics h5>span {
+    color: #3278ef;
+    font-size: 14px;
+}
