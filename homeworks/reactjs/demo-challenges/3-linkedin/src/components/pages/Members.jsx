@@ -23,7 +23,7 @@ const Members = () => {
     } else {
       navigate('/');
     }
-  }, []);
+  }, [navigate]);
 
   // Handle click the 'view profile' button
   const handleViewProfile = (memberId) => {
