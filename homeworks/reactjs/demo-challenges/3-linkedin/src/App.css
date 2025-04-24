@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html,
+#root {
+    height: 100%;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 900px;
+    margin: 20px auto;
+
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    font-size: 16px;
+    color: #2d2d2d;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+h2 {
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
+.auth-page {
+    margin-top: 90px;
+}
+
+.members-header {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.profile-header {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.row-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.column-box {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.register-form,
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    width: 100%;
+    padding: 50px;
+    border: 1px solid #bebebe;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.register-form input,
+.login-form input {
+    width: 100%;
+    padding: 5px;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    font-size: 16px;
+}
+
+.register-form button,
+.login-form button,
+.user-list button {
+    max-width: max-content;
+    max-height: fit-content;
+    background-color: #3278ef;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.user-list,
+.user-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 50px;
+    border: 1px solid #bebebe;
+    border-radius: 5px;
+    margin: 10px;
+    margin-bottom: 40px;
+
+    font-size: 16px;
+}
+
+.user-list div,
+.user-info div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-list div>li,
+.user-info li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.one-link {
+    margin-left: 60px;
+}
