@@ -68,6 +68,8 @@ const EditProduct = () => {
           value={product.title}
           onChange={handleChange}
           placeholder='Product Name'
+          minLength={4}
+          maxLength={30}
           required
         />
         <label htmlFor='price'>Price:</label>
@@ -76,6 +78,8 @@ const EditProduct = () => {
           value={product.price}
           onChange={handleChange}
           placeholder='Product Price'
+          minLength={1}
+          maxLength={10}
           required
           type='number'
         />
@@ -85,6 +89,7 @@ const EditProduct = () => {
           value={product.description}
           onChange={handleChange}
           placeholder='Product Description'
+          maxLength={200}
           required
         />
         <button type='submit'>Save Changes</button>
