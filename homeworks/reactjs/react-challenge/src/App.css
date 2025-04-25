@@ -64,7 +64,7 @@ button {
   font-weight: 600;
 }
 
-.table-wrapper {
+.page-layout {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -93,9 +93,31 @@ button {
   gap: 10px;
 }
 
+.margin-top {
+  margin-top: 50px;
+}
+
 .add-link-style {
   margin-left: 200px;
   margin-bottom: 50px;
+}
+
+.two-column-flex {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.two-column-flex p:first-child {
+  min-width: 150px;
+  font-weight: bold;
+}
+
+.two-column-flex p:last-child {
+  flex: 1;
+  text-align: left;
 }
 
 .footer-style {

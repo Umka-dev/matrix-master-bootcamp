@@ -7,7 +7,7 @@ const Products = () => {
 
   return (
     <>
-      <div className='table-wrapper'>
+      <div className='page-layout'>
         <h1>Products</h1>
         {!products && <p>Product list is empty.</p>}
         {products ? (
