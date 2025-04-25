@@ -10,6 +10,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Products from './components/pages/Products';
 import AddNewProduct from './components/pages/AddNewProduct';
+// import CreateProduct from './components/pages/AddNewProduct';
 import ProductPage from './components/pages/ProductPage';
 import EditProduct from './components/pages/EditProduct';
 import NotFound from './components/pages/NotFound';
@@ -26,6 +27,7 @@ const App = () => {
             <Route path='/' element={<Navigate to='/products' replace />} />
             <Route path='/products' element={<Products />} />
             <Route path='/products/new' element={<AddNewProduct />} />
+            {/* <Route path='/products/create' element={<CreateProduct />} /> */}
             <Route path='/products/show/:productId' element={<ProductPage />} />
             <Route path='/products/edit/:productId' element={<EditProduct />} />
 

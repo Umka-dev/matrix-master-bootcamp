@@ -120,6 +120,32 @@ button {
   text-align: left;
 }
 
+.add-product-form,
+.edit-product-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  width: 100%;
+  min-width: 600px;
+  max-width: 800px;
+  padding: 50px;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.add-product-form input,
+.add-product-form textarea,
+.edit-product-form input,
+.edit-product-form textarea {
+  width: 100%;
+  padding: 5px;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  font-size: 16px;
+}
+
 .footer-style {
   background: #ededed;
   color: #000;

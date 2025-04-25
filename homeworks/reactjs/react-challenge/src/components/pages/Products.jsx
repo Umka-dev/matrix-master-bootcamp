@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import useFetch from '../hooks/useFetch';
+// import { deleteProduct } from '../../api/api';
 import { Link } from 'react-router-dom';
 
+const LOCAL_STORAGE_KEY = 'my_products_data';
+
 const Products = () => {
-  const [products] = useFetch('https://fakestoreapi.com/products');
+  const [products, setProducts] = useState([]);
+  const [fetchedData] = useFetch('https://fakestoreapi.com/products');
+
+  useEffect(() => {
+    if (fetchedData) setProducts(fetchedData);
+  }, [fetchedData]);
+
+  useEffect(() => {
+    const storedData = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (storedData) {
+      setProducts(JSON.parse(storedData));
+    } else if (fetchedData) {
+      setProducts(fetchedData);
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(fetchedData));
+    }
+  }, [fetchedData]);
+
+  const handleDelete = (id) => {
+    const updated = products.filter((p) => p.id !== id);
+    setProducts(updated);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updated));
+  };
+
+  console.log('products', products);
 
   return (
     <>
@@ -30,7 +56,9 @@ const Products = () => {
                     <div className='actions-style'>
                       <Link to={`/products/show/${product.id}`}>Show</Link>|{' '}
                       <Link to={`/products/edit/${product.id}`}>Edit</Link>
-                      <button>Delete</button>
+                      <button onClick={() => handleDelete(product.id)}>
+                        Delete
+                      </button>
                     </div>
                   </td>
                 </tr>
