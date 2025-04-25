@@ -1,12 +1,26 @@
-import React from 'react';
-import useFetch from '../hooks/useFetch';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+
+const LOCAL_STORAGE_KEY = 'my_products_data';
 
 const ProductPage = () => {
   const params = useParams();
-  const [product] = useFetch(
-    `https://fakestoreapi.com/products/${params.productId}`
-  );
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    // Get from local storage
+    const storedProducts =
+      JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+    const localProduct = storedProducts.find(
+      (product) => product.id === parseInt(params.productId)
+    );
+
+    if (localProduct) {
+      setProduct(localProduct);
+    } else {
+      console.log('Failed to fetch product');
+    }
+  }, [params.productId]);
 
   return (
     <div className='page-layout'>

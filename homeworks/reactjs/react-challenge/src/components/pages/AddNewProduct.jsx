@@ -21,7 +21,6 @@ const AddNewProduct = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Генерируем ID на основе времени
     const newProduct = {
       id: Date.now(),
       title: formData.title,
@@ -31,15 +30,15 @@ const AddNewProduct = () => {
       image: formData.image || 'https://via.placeholder.com/150',
     };
 
-    // Получаем старые продукты из localStorage
+    // Get products from the localStorage
     const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
     const products = stored ? JSON.parse(stored) : [];
 
-    // Добавляем новый товар
+    // Add new product
     const updatedProducts = [...products, newProduct];
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedProducts));
 
-    // Навигация обратно на список
+    // Back to product list
     navigate('/products');
   };
 
